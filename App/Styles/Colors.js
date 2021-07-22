@@ -1,6 +1,6 @@
-export default COLORS = {
-  white: "#fffff",
-  black: "#00000",
+const COLORS = {
+  white: "#ffff",
+  black: "#0000",
   intense_red: "#b2021f",
   glacier_white_pearl: "#f3f9fc",
   steel_silver: "#aeadad",
@@ -9,3 +9,5 @@ export default COLORS = {
   intelligency_blue: "#0b21b3",
   punchy_orange: "#f05204",
 };
+
+export default COLORS;

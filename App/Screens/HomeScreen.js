@@ -5,7 +5,13 @@ import GlobalStyles from "../Styles/GlobalStyle";
 
 const HomeScreen = () => {
   return (
-    <View style={GlobalStyles.flex}>
+    <View
+      style={[
+        GlobalStyles.flex,
+        GlobalStyles.whiteBackground,
+        GlobalStyles.pagePadding,
+      ]}
+    >
       <Text>HomeScreen hjgdfjf</Text>
     </View>
   );
