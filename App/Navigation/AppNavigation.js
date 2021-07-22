@@ -1,0 +1,9 @@
+import { NavigationContainer } from "@react-navigation/native";
+
+import StackNavigation from "./StackNavigation";
+
+export default AppNavigation = () => (
+  <NavigationContainer>
+    <StackNavigation />
+  </NavigationContainer>
+);
