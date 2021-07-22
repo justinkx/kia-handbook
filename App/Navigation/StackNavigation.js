@@ -8,7 +8,7 @@ const Stack = createStackNavigator();
 
 export default HomeStack = () => {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator headerMode="none">
       <Stack.Screen name={NAV_CONSTANTS.HOME_SCREEN} component={HomeScreen} />
     </Stack.Navigator>
   );

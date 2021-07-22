@@ -1,10 +1,12 @@
 import React, { memo } from "react";
 import { StyleSheet, Text, View } from "react-native";
 
+import GlobalStyles from "../Styles/GlobalStyle";
+
 const HomeScreen = () => {
   return (
-    <View>
-      <Text>HomeScreen</Text>
+    <View style={GlobalStyles.flex}>
+      <Text>HomeScreen hjgdfjf</Text>
     </View>
   );
 };

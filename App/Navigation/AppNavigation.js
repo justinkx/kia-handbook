@@ -1,10 +1,14 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
-import StackNavigation from "./StackNavigation";
+import HomeStack from "./StackNavigation";
+import GlobalStyles from "../Styles/GlobalStyle";
 
 export default AppNavigation = () => (
   <NavigationContainer>
-    <StackNavigation />
+    <SafeAreaView style={GlobalStyles.flex}>
+      <HomeStack />
+    </SafeAreaView>
   </NavigationContainer>
 );
