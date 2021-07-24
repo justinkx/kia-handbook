@@ -15,6 +15,7 @@ import Animated, {
   useAnimatedScrollHandler,
   useAnimatedStyle,
   interpolate,
+  runOnJS,
 } from "react-native-reanimated";
 
 import GlobalStyles from "../Styles/GlobalStyle";
@@ -49,7 +50,7 @@ const HomeScreen = () => {
 
   const [selectedIndex, setIndex] = useState(0);
   const imageScrollX = useSharedValue(0);
-  const modalScrollX = useRef(new Animated.Value(0)).current;
+  const modalScrollX = useSharedValue(0);
 
   const renderImages = useCallback(
     ({ item, index }) => (
@@ -101,16 +102,22 @@ const HomeScreen = () => {
     [modalScrollX]
   );
 
-  const onScroll = useCallback(({ nativeEvent }) => {
-    if (!nativeEvent?.contentOffset?.x) return;
+  const setAnimatedIndex = useCallback((event) => {
+    if (!event?.contentOffset?.x) return;
     const {
       contentOffset: { x },
       contentSize: { width },
-    } = nativeEvent;
+    } = event;
     const newIndex = Math.floor((x / width) * SLIDER_SIZE);
     if (newIndex < 0 || newIndex >= DATA_SIZE) return;
     setIndex(Math.floor((x / width) * SLIDER_SIZE));
   }, []);
+
+  const onScroll = useAnimatedScrollHandler((event) => {
+    "worklet";
+    modalScrollX.value = event.contentOffset.x;
+    runOnJS(setAnimatedIndex)(event);
+  });
 
   const scrollHandler = useAnimatedScrollHandler((event) => {
     imageScrollX.value = event.contentOffset.x;
@@ -139,7 +146,7 @@ const HomeScreen = () => {
         {imageIndicator()}
       </View>
       <Text style={[styles.name, GlobalStyles.pagePadding]}>Discover</Text>
-      {/* <Animated.FlatList
+      <AnimatedFlatList
         horizontal
         data={kiaModalData}
         renderItem={renderModalCard}
@@ -151,22 +158,10 @@ const HomeScreen = () => {
         pagingEnabled
         decelerationRate={0}
         bounce={false}
-        onScroll={Animated.event(
-          [
-            {
-              nativeEvent: {
-                contentOffset: { x: modalScrollX },
-              },
-            },
-          ],
-          {
-            useNativeDriver: true,
-            listener: onScroll,
-          }
-        )}
+        onScroll={onScroll}
         scrollEventThrottle={16}
         style={GlobalStyles.flex}
-      /> */}
+      />
     </View>
   );
 };

@@ -1,50 +1,71 @@
 import React, { memo } from "react";
-import { StyleSheet, Text, View, Animated, Dimensions } from "react-native";
+import { StyleSheet, Text, View, Dimensions } from "react-native";
+import Animated, {
+  useAnimatedStyle,
+  interpolate,
+} from "react-native-reanimated";
 
 const ITEM_SPACING = 15;
 const { width } = Dimensions.get("window");
 const ITEM_WIDTH = width * 0.7;
 
 const ModelsCard = ({ item, index, scrollX }) => {
-  const translateY = scrollX.interpolate({
-    inputRange: [
-      (index - 2) * ITEM_WIDTH,
-      (index - 1) * ITEM_WIDTH,
-      index * ITEM_WIDTH,
+  const animatedViewStyle = useAnimatedStyle(() => ({
+    transform: [
+      {
+        translateY: interpolate(
+          scrollX.value,
+          [
+            (index - 2) * ITEM_WIDTH,
+            (index - 1) * ITEM_WIDTH,
+            index * ITEM_WIDTH,
+          ],
+          [0, -50, 0]
+        ),
+      },
     ],
-    outputRange: [0, -50, 0],
-  });
+  }));
 
-  const scale = scrollX.interpolate({
-    inputRange: [
-      (index - 2) * ITEM_WIDTH,
-      (index - 1) * ITEM_WIDTH,
-      index * ITEM_WIDTH,
+  const animatedScale = useAnimatedStyle(() => ({
+    transform: [
+      {
+        scale: interpolate(
+          scrollX.value,
+          [
+            (index - 2) * ITEM_WIDTH,
+            (index - 1) * ITEM_WIDTH,
+            index * ITEM_WIDTH,
+          ],
+          [1, 1.5, 1]
+        ),
+      },
     ],
-    outputRange: [1, 1.5, 1],
-  });
+  }));
+
+  const maskedScale = useAnimatedStyle(() => ({
+    transform: [
+      {
+        scale: interpolate(
+          scrollX.value,
+          [
+            (index - 2) * ITEM_WIDTH,
+            (index - 1) * ITEM_WIDTH,
+            index * ITEM_WIDTH,
+          ],
+          [1, 1.15, 1]
+        ),
+      },
+    ],
+  }));
 
   return (
     <View style={styles.container}>
-      <Animated.View
-        style={[
-          styles.animatedView,
-          {
-            transform: [
-              {
-                translateY,
-              },
-            ],
-          },
-        ]}
-      >
-        <Animated.View
-          style={[styles.maskedView, { transform: [{ scale }] }]}
-        />
+      <Animated.View style={[styles.animatedView, animatedViewStyle]}>
+        <Animated.View style={[styles.maskedView, maskedScale]} />
 
         <Animated.Image
           source={{ uri: item.images[0] }}
-          style={[styles.image, { transform: [{ scale }] }]}
+          style={[styles.image, animatedScale]}
           resizeMode="contain"
         />
         <Text style={styles.name}>{item.name}</Text>
@@ -82,17 +103,16 @@ const styles = StyleSheet.create({
   image: {
     width: "100%",
     height: 175,
-    zIndex: 100,
   },
   maskedView: {
     backgroundColor: "white",
-    width: ITEM_WIDTH + ITEM_SPACING * 2,
-    height: 150,
-    zIndex: 1,
+    width: ITEM_WIDTH + ITEM_SPACING,
+    height: 170,
     position: "absolute",
-    top: -ITEM_SPACING / 2,
+    top: -5,
     left: -ITEM_SPACING,
     borderBottomLeftRadius: ITEM_WIDTH,
     borderBottomRightRadius: ITEM_WIDTH / 2,
+    zIndex: -10,
   },
 });
