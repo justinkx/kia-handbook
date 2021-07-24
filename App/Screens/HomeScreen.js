@@ -7,6 +7,7 @@ import {
   Dimensions,
   Animated,
 } from "react-native";
+import _isObject from "lodash/isObject";
 
 import GlobalStyles from "../Styles/GlobalStyle";
 import { HomeScreenData } from "../Utils/HomeScreen.data";
@@ -21,6 +22,15 @@ const IMAGE_VIEW_WIDTH = width - 30;
 const SPACER_ITEM_SIZE = (width - MODAL_ITEM_WIDTH) / 2;
 
 const HomeScreen = () => {
+  const kiaModalData = useMemo(() => [
+    {
+      key: "left",
+    },
+    ...HomeScreenData,
+    {
+      key: "right",
+    },
+  ]);
   const [selectedIndex, setIndex] = useState(0);
   const imageScrollX = useRef(new Animated.Value(0)).current;
   const modalScrollX = useRef(new Animated.Value(0)).current;
@@ -67,11 +77,22 @@ const HomeScreen = () => {
   }, [selectedIndex, imageScrollX]);
 
   const renderModalCard = useCallback(
-    ({ item, index }) => (
-      <ModelsCard item={item} scrollX={modalScrollX} index={index} />
-    ),
+    ({ item, index }) => {
+      if (item.key) {
+        return <View style={styles.spacerStyle} />;
+      }
+      return <ModelsCard item={item} scrollX={modalScrollX} index={index} />;
+    },
     [modalScrollX]
   );
+
+  const onViewableItemsChanged = useCallback((data) => {
+    const { viewableItems } = data;
+    if (viewableItems && _isObject(viewableItems[0])) {
+      const [{ index }] = viewableItems;
+      console.log("index", index);
+    }
+  }, []);
 
   return (
     <View style={[GlobalStyles.flex, GlobalStyles.whiteBackground]}>
@@ -109,7 +130,7 @@ const HomeScreen = () => {
       <Text style={[styles.name, GlobalStyles.pagePadding]}>Discover</Text>
       <Animated.FlatList
         horizontal
-        data={HomeScreenData}
+        data={kiaModalData}
         renderItem={renderModalCard}
         keyExtractor={keyExtractor}
         snapToInterval={MODAL_ITEM_WIDTH}
@@ -133,6 +154,8 @@ const HomeScreen = () => {
         )}
         scrollEventThrottle={16}
         style={GlobalStyles.flex}
+        onViewableItemsChanged={onViewableItemsChanged}
+        viewabilityConfig={{ viewAreaCoveragePercentThreshold: 100 }}
       />
     </View>
   );
@@ -166,5 +189,8 @@ const styles = StyleSheet.create({
   carouselFlatlist: {
     height: height / 3.4,
     flexGrow: 0,
+  },
+  spacerStyle: {
+    width: SPACER_ITEM_SIZE,
   },
 });

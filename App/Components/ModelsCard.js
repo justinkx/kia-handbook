@@ -15,21 +15,22 @@ const ITEM_WIDTH = width * 0.7;
 const ModelsCard = ({ item, index, scrollX }) => {
   const translateY = scrollX.interpolate({
     inputRange: [
+      (index - 2) * ITEM_WIDTH,
       (index - 1) * ITEM_WIDTH,
       index * ITEM_WIDTH,
-      (index + 1) * ITEM_WIDTH,
     ],
     outputRange: [0, -50, 0],
   });
 
   const scale = scrollX.interpolate({
     inputRange: [
+      (index - 2) * ITEM_WIDTH,
       (index - 1) * ITEM_WIDTH,
       index * ITEM_WIDTH,
-      (index + 1) * ITEM_WIDTH,
     ],
     outputRange: [1, 1.5, 1],
   });
+
   return (
     <View
       style={{
