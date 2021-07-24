@@ -5,11 +5,17 @@ import {
   Image,
   View,
   Dimensions,
-  Animated,
+  FlatList,
 } from "react-native";
 import _isObject from "lodash/isObject";
 import _throttle from "lodash/throttle";
 import _size from "lodash/size";
+import Animated, {
+  useSharedValue,
+  useAnimatedScrollHandler,
+  useAnimatedStyle,
+  interpolate,
+} from "react-native-reanimated";
 
 import GlobalStyles from "../Styles/GlobalStyle";
 import { HomeScreenData } from "../Utils/HomeScreen.data";
@@ -24,6 +30,8 @@ const IMAGE_VIEW_WIDTH = width - 30;
 const SPACER_ITEM_SIZE = (width - MODAL_ITEM_WIDTH) / 2;
 const DATA_SIZE = _size(HomeScreenData);
 const SLIDER_SIZE = DATA_SIZE + 2;
+
+const AnimatedFlatList = Animated.createAnimatedComponent(FlatList);
 
 const HomeScreen = () => {
   const kiaModalData = useMemo(
@@ -40,7 +48,7 @@ const HomeScreen = () => {
   );
 
   const [selectedIndex, setIndex] = useState(0);
-  const imageScrollX = useRef(new Animated.Value(0)).current;
+  const imageScrollX = useSharedValue(0);
   const modalScrollX = useRef(new Animated.Value(0)).current;
 
   const renderImages = useCallback(
@@ -56,27 +64,26 @@ const HomeScreen = () => {
     return (
       <View style={GlobalStyles.row}>
         {HomeScreenData[selectedIndex].images.map((item, i) => {
-          const scale = imageScrollX.interpolate({
-            inputRange: [
-              (i - 1) * IMAGE_VIEW_WIDTH,
-              i * IMAGE_VIEW_WIDTH,
-              (i + 1) * IMAGE_VIEW_WIDTH,
+          const indicatorStyle = useAnimatedStyle(() => ({
+            transform: [
+              {
+                scale: interpolate(
+                  imageScrollX.value,
+                  [
+                    (i - 1) * IMAGE_VIEW_WIDTH,
+                    i * IMAGE_VIEW_WIDTH,
+                    (i + 1) * IMAGE_VIEW_WIDTH,
+                  ],
+                  [0.9, 1.1, 0.9]
+                ),
+              },
             ],
-            outputRange: [0.9, 1.1, 0.9],
-          });
+          }));
+
           return (
             <Animated.View
               key={i}
-              style={[
-                styles.imageIndicator,
-                {
-                  transform: [
-                    {
-                      scale,
-                    },
-                  ],
-                },
-              ]}
+              style={[styles.imageIndicator, indicatorStyle]}
             ></Animated.View>
           );
         })}
@@ -105,13 +112,17 @@ const HomeScreen = () => {
     setIndex(Math.floor((x / width) * SLIDER_SIZE));
   }, []);
 
+  const scrollHandler = useAnimatedScrollHandler((event) => {
+    imageScrollX.value = event.contentOffset.x;
+  });
+
   return (
     <View style={[GlobalStyles.flex, GlobalStyles.whiteBackground]}>
       <View style={[GlobalStyles.row, GlobalStyles.pagePadding]}>
         <Image resizeMode="contain" source={KIA} style={styles.kia} />
         <Text style={styles.name}>{HomeScreenData[selectedIndex].name}</Text>
       </View>
-      <Animated.FlatList
+      <AnimatedFlatList
         data={HomeScreenData[selectedIndex].images}
         renderItem={renderImages}
         horizontal
@@ -120,18 +131,7 @@ const HomeScreen = () => {
         showsHorizontalScrollIndicator={false}
         keyExtractor={keyExtractor}
         style={styles.carouselFlatlist}
-        onScroll={Animated.event(
-          [
-            {
-              nativeEvent: {
-                contentOffset: { x: imageScrollX },
-              },
-            },
-          ],
-          {
-            useNativeDriver: true,
-          }
-        )}
+        onScroll={scrollHandler}
         decelerationRate={0}
         bounce={false}
       />
@@ -139,7 +139,7 @@ const HomeScreen = () => {
         {imageIndicator()}
       </View>
       <Text style={[styles.name, GlobalStyles.pagePadding]}>Discover</Text>
-      <Animated.FlatList
+      {/* <Animated.FlatList
         horizontal
         data={kiaModalData}
         renderItem={renderModalCard}
@@ -166,7 +166,7 @@ const HomeScreen = () => {
         )}
         scrollEventThrottle={16}
         style={GlobalStyles.flex}
-      />
+      /> */}
     </View>
   );
 };

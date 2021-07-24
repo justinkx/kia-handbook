@@ -1,10 +1,15 @@
 import React, { memo, useMemo } from "react";
-import { StyleSheet, View, Animated, Dimensions } from "react-native";
+import { StyleSheet, View, Dimensions } from "react-native";
+import Animated, {
+  useAnimatedStyle,
+  interpolate,
+} from "react-native-reanimated";
 
 import GlobalStyles from "../Styles/GlobalStyle";
 
 const { width, height } = Dimensions.get("window");
 const IMAGE_VIEW_WIDTH = width;
+const outputRange = [0.9, 1.25, 0.9];
 
 const CarouselImage = ({ item, scrollX, index }) => {
   const inputRange = useMemo(
@@ -16,10 +21,9 @@ const CarouselImage = ({ item, scrollX, index }) => {
     [index]
   );
 
-  const scale = scrollX.interpolate({
-    inputRange,
-    outputRange: [0.9, 1.25, 0.9],
-  });
+  const imageStyle = useAnimatedStyle(() => ({
+    transform: [{ scale: interpolate(scrollX.value, inputRange, outputRange) }],
+  }));
 
   return (
     <View style={[{ width: IMAGE_VIEW_WIDTH }]}>
@@ -34,15 +38,13 @@ const CarouselImage = ({ item, scrollX, index }) => {
         <Animated.Image
           source={{ uri: item }}
           resizeMode="contain"
-          style={{
-            width: IMAGE_VIEW_WIDTH - 40,
-            height: height / 3.5,
-            transform: [
-              {
-                scale,
-              },
-            ],
-          }}
+          style={[
+            imageStyle,
+            {
+              width: IMAGE_VIEW_WIDTH - 40,
+              height: height / 3.5,
+            },
+          ]}
         />
       </View>
     </View>
