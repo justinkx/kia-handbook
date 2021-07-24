@@ -48,7 +48,7 @@ const ModelsCard = ({ item, index, scrollX }) => {
           resizeMode="contain"
         />
         <Text style={styles.name}>{item.name}</Text>
-        <Text>{item.description}</Text>
+        <Animated.Text>{item.description}</Animated.Text>
       </Animated.View>
     </View>
   );
