@@ -11,6 +11,7 @@ import {
 
 import GlobalStyles from "../Styles/GlobalStyle";
 import { HomeScreenData } from "../Utils/HomeScreen.data";
+import CarouselImage from "../Components/CarouselImage";
 
 const KIA = require("../../assets/kia.png");
 const IMAGE_INDICATOR_SIZE = 10;
@@ -21,35 +22,47 @@ const HomeScreen = () => {
   const imageScrollX = useRef(new Animated.Value(0)).current;
 
   const renderImages = useCallback(
-    ({ item }) => (
-      <View
-        style={[
-          GlobalStyles.center,
-          { width: width - 30, height: height / 2.5 },
-        ]}
-      >
-        <Image
-          source={{ uri: item }}
-          resizeMode="contain"
-          style={{ width: width - 30, height: height / 2.5 }}
-        />
-      </View>
-    ),
-    []
+    ({ item }) => <CarouselImage item={item} width={width} height={height} />,
+    [width, height]
   );
 
-  const imageKeyExtractor = useCallback((item) => item, []);
+  const imageKeyExtractor = useCallback((_, index) => index.toString(), []);
 
-  const imageIndicator = useMemo(
-    () => (
+  const imageIndicator = useCallback(() => {
+    return (
       <View style={GlobalStyles.row}>
-        {HomeScreenData[selectedIndex].images.map((item, index) => (
-          <View key={index} style={styles.imageIndicator}></View>
-        ))}
+        {HomeScreenData[selectedIndex].images.map((item, i) => {
+          const IMAGE_VIEW_WIDTH = width - 30;
+          const scale = imageScrollX.interpolate({
+            inputRange: [
+              (i - 2) * IMAGE_VIEW_WIDTH,
+              (i - 1) * IMAGE_VIEW_WIDTH,
+              i * IMAGE_VIEW_WIDTH,
+              (i + 1) * IMAGE_VIEW_WIDTH,
+              (i + 2) * IMAGE_VIEW_WIDTH,
+            ],
+            outputRange: [0.8, 1, 1.2, 1, 0.8],
+          });
+          return (
+            <Animated.View
+              key={i}
+              style={[
+                styles.imageIndicator,
+                {
+                  transform: [
+                    {
+                      scale,
+                    },
+                  ],
+                },
+              ]}
+            ></Animated.View>
+          );
+        })}
       </View>
-    ),
-    [selectedIndex]
-  );
+    );
+  }, [selectedIndex, imageScrollX, width]);
+
   return (
     <View
       style={[
@@ -70,7 +83,7 @@ const HomeScreen = () => {
         pagingEnabled
         showsHorizontalScrollIndicator={false}
         keyExtractor={imageKeyExtractor}
-        style={{ height: height / 3, flexGrow: 0 }}
+        style={{ height: height / 3.4, flexGrow: 0 }}
         onScroll={Animated.event(
           [
             {
@@ -85,8 +98,10 @@ const HomeScreen = () => {
         )}
       />
       <View style={[GlobalStyles.center, styles.indicatorContainer]}>
-        {imageIndicator}
+        {imageIndicator()}
       </View>
+      <Text style={styles.name}>Discover</Text>
+      <Animated.FlatList style={GlobalStyles.flex} data={HomeScreenData} />
     </View>
   );
 };
