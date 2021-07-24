@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 
 import COLORS from "./Colors";
 
-const PAGE_PADDING = 10;
+const PAGE_PADDING = 15;
 
 export default GlobalStyles = StyleSheet.create({
   flex: {
@@ -20,5 +20,10 @@ export default GlobalStyles = StyleSheet.create({
   },
   pagePadding: {
     padding: PAGE_PADDING,
+  },
+  row: {
+    flexDirection: "row",
+    justifyContent: "flex-start",
+    alignItems: "center",
   },
 });
