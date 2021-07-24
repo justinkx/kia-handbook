@@ -1,5 +1,5 @@
 import React, { memo, useMemo } from "react";
-import { StyleSheet, Image, View, Animated, Dimensions } from "react-native";
+import { StyleSheet, View, Animated, Dimensions } from "react-native";
 
 import GlobalStyles from "../Styles/GlobalStyle";
 
@@ -18,7 +18,7 @@ const CarouselImage = ({ item, scrollX, index }) => {
 
   const scale = scrollX.interpolate({
     inputRange,
-    outputRange: [0.9, 1.3, 0.9],
+    outputRange: [0.9, 1.25, 0.9],
   });
 
   return (
@@ -35,7 +35,7 @@ const CarouselImage = ({ item, scrollX, index }) => {
           source={{ uri: item }}
           resizeMode="contain"
           style={{
-            width: IMAGE_VIEW_WIDTH - 20,
+            width: IMAGE_VIEW_WIDTH - 40,
             height: height / 3.5,
             transform: [
               {

@@ -8,6 +8,8 @@ import {
   Animated,
 } from "react-native";
 import _isObject from "lodash/isObject";
+import _throttle from "lodash/throttle";
+import _size from "lodash/size";
 
 import GlobalStyles from "../Styles/GlobalStyle";
 import { HomeScreenData } from "../Utils/HomeScreen.data";
@@ -20,17 +22,23 @@ const { width, height } = Dimensions.get("window");
 const MODAL_ITEM_WIDTH = width * 0.7;
 const IMAGE_VIEW_WIDTH = width - 30;
 const SPACER_ITEM_SIZE = (width - MODAL_ITEM_WIDTH) / 2;
+const DATA_SIZE = _size(HomeScreenData);
+const SLIDER_SIZE = DATA_SIZE + 2;
 
 const HomeScreen = () => {
-  const kiaModalData = useMemo(() => [
-    {
-      key: "left",
-    },
-    ...HomeScreenData,
-    {
-      key: "right",
-    },
-  ]);
+  const kiaModalData = useMemo(
+    () => [
+      {
+        key: "left",
+      },
+      ...HomeScreenData,
+      {
+        key: "right",
+      },
+    ],
+    []
+  );
+
   const [selectedIndex, setIndex] = useState(0);
   const imageScrollX = useRef(new Animated.Value(0)).current;
   const modalScrollX = useRef(new Animated.Value(0)).current;
@@ -86,12 +94,15 @@ const HomeScreen = () => {
     [modalScrollX]
   );
 
-  const onViewableItemsChanged = useCallback((data) => {
-    const { viewableItems } = data;
-    if (viewableItems && _isObject(viewableItems[0])) {
-      const [{ index }] = viewableItems;
-      console.log("index", index);
-    }
+  const onScroll = useCallback(({ nativeEvent }) => {
+    if (!nativeEvent?.contentOffset?.x) return;
+    const {
+      contentOffset: { x },
+      contentSize: { width },
+    } = nativeEvent;
+    const newIndex = Math.floor((x / width) * SLIDER_SIZE);
+    if (newIndex < 0 || newIndex >= DATA_SIZE) return;
+    setIndex(Math.floor((x / width) * SLIDER_SIZE));
   }, []);
 
   return (
@@ -150,12 +161,11 @@ const HomeScreen = () => {
           ],
           {
             useNativeDriver: true,
+            listener: onScroll,
           }
         )}
         scrollEventThrottle={16}
         style={GlobalStyles.flex}
-        onViewableItemsChanged={onViewableItemsChanged}
-        viewabilityConfig={{ viewAreaCoveragePercentThreshold: 100 }}
       />
     </View>
   );
