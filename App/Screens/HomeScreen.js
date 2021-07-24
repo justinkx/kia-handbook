@@ -13,8 +13,6 @@ import _size from "lodash/size";
 import Animated, {
   useSharedValue,
   useAnimatedScrollHandler,
-  useAnimatedStyle,
-  interpolate,
   runOnJS,
 } from "react-native-reanimated";
 
@@ -22,9 +20,9 @@ import GlobalStyles from "../Styles/GlobalStyle";
 import { HomeScreenData } from "../Utils/HomeScreen.data";
 import CarouselImage from "../Components/CarouselImage";
 import ModelsCard from "../Components/ModelsCard";
+import CarouselPagination from "../Components/CarouselPagination";
 
 const KIA = require("../../assets/kia.png");
-const IMAGE_INDICATOR_SIZE = 10;
 const { width, height } = Dimensions.get("window");
 const MODAL_ITEM_WIDTH = width * 0.7;
 const IMAGE_VIEW_WIDTH = width - 30;
@@ -63,32 +61,11 @@ const HomeScreen = () => {
 
   const imageIndicator = useCallback(() => {
     return (
-      <View style={GlobalStyles.row}>
-        {HomeScreenData[selectedIndex].images.map((item, i) => {
-          const indicatorStyle = useAnimatedStyle(() => ({
-            transform: [
-              {
-                scale: interpolate(
-                  imageScrollX.value,
-                  [
-                    (i - 1) * IMAGE_VIEW_WIDTH,
-                    i * IMAGE_VIEW_WIDTH,
-                    (i + 1) * IMAGE_VIEW_WIDTH,
-                  ],
-                  [0.9, 1.1, 0.9]
-                ),
-              },
-            ],
-          }));
-
-          return (
-            <Animated.View
-              key={i}
-              style={[styles.imageIndicator, indicatorStyle]}
-            ></Animated.View>
-          );
-        })}
-      </View>
+      <CarouselPagination
+        images={HomeScreenData[selectedIndex].images}
+        imageScrollX={imageScrollX}
+        IMAGE_VIEW_WIDTH={IMAGE_VIEW_WIDTH}
+      />
     );
   }, [selectedIndex, imageScrollX]);
 
@@ -177,13 +154,6 @@ const styles = StyleSheet.create({
     height: 18,
     marginRight: 5,
     width: 40,
-  },
-  imageIndicator: {
-    width: IMAGE_INDICATOR_SIZE,
-    height: IMAGE_INDICATOR_SIZE,
-    borderRadius: IMAGE_INDICATOR_SIZE / 2,
-    backgroundColor: "#333",
-    margin: 5,
   },
   indicatorContainer: {
     height: 50,
