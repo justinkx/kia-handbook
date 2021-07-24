@@ -4,44 +4,47 @@ import {
   Text,
   Image,
   View,
-  FlatList,
-  useWindowDimensions,
+  Dimensions,
   Animated,
 } from "react-native";
 
 import GlobalStyles from "../Styles/GlobalStyle";
 import { HomeScreenData } from "../Utils/HomeScreen.data";
 import CarouselImage from "../Components/CarouselImage";
+import ModelsCard from "../Components/ModelsCard";
 
 const KIA = require("../../assets/kia.png");
 const IMAGE_INDICATOR_SIZE = 10;
+const { width, height } = Dimensions.get("window");
+const MODAL_ITEM_WIDTH = width * 0.7;
+const IMAGE_VIEW_WIDTH = width - 30;
+const SPACER_ITEM_SIZE = (width - MODAL_ITEM_WIDTH) / 2;
 
 const HomeScreen = () => {
   const [selectedIndex, setIndex] = useState(0);
-  const { width, height } = useWindowDimensions();
   const imageScrollX = useRef(new Animated.Value(0)).current;
+  const modalScrollX = useRef(new Animated.Value(0)).current;
 
   const renderImages = useCallback(
-    ({ item }) => <CarouselImage item={item} width={width} height={height} />,
-    [width, height]
+    ({ item, index }) => (
+      <CarouselImage scrollX={imageScrollX} item={item} index={index} />
+    ),
+    [imageScrollX]
   );
 
-  const imageKeyExtractor = useCallback((_, index) => index.toString(), []);
+  const keyExtractor = useCallback((_, index) => index.toString(), []);
 
   const imageIndicator = useCallback(() => {
     return (
       <View style={GlobalStyles.row}>
         {HomeScreenData[selectedIndex].images.map((item, i) => {
-          const IMAGE_VIEW_WIDTH = width - 30;
           const scale = imageScrollX.interpolate({
             inputRange: [
-              (i - 2) * IMAGE_VIEW_WIDTH,
               (i - 1) * IMAGE_VIEW_WIDTH,
               i * IMAGE_VIEW_WIDTH,
               (i + 1) * IMAGE_VIEW_WIDTH,
-              (i + 2) * IMAGE_VIEW_WIDTH,
             ],
-            outputRange: [0.8, 1, 1.2, 1, 0.8],
+            outputRange: [0.9, 1.1, 0.9],
           });
           return (
             <Animated.View
@@ -61,17 +64,18 @@ const HomeScreen = () => {
         })}
       </View>
     );
-  }, [selectedIndex, imageScrollX, width]);
+  }, [selectedIndex, imageScrollX]);
+
+  const renderModalCard = useCallback(
+    ({ item, index }) => (
+      <ModelsCard item={item} scrollX={modalScrollX} index={index} />
+    ),
+    [modalScrollX]
+  );
 
   return (
-    <View
-      style={[
-        GlobalStyles.flex,
-        GlobalStyles.whiteBackground,
-        GlobalStyles.pagePadding,
-      ]}
-    >
-      <View style={GlobalStyles.row}>
+    <View style={[GlobalStyles.flex, GlobalStyles.whiteBackground]}>
+      <View style={[GlobalStyles.row, GlobalStyles.pagePadding]}>
         <Image resizeMode="contain" source={KIA} style={styles.kia} />
         <Text style={styles.name}>{HomeScreenData[selectedIndex].name}</Text>
       </View>
@@ -82,8 +86,8 @@ const HomeScreen = () => {
         scrollEventThrottle={32}
         pagingEnabled
         showsHorizontalScrollIndicator={false}
-        keyExtractor={imageKeyExtractor}
-        style={{ height: height / 3.4, flexGrow: 0 }}
+        keyExtractor={keyExtractor}
+        style={styles.carouselFlatlist}
         onScroll={Animated.event(
           [
             {
@@ -96,12 +100,40 @@ const HomeScreen = () => {
             useNativeDriver: true,
           }
         )}
+        decelerationRate={0}
+        bounce={false}
       />
       <View style={[GlobalStyles.center, styles.indicatorContainer]}>
         {imageIndicator()}
       </View>
-      <Text style={styles.name}>Discover</Text>
-      <Animated.FlatList style={GlobalStyles.flex} data={HomeScreenData} />
+      <Text style={[styles.name, GlobalStyles.pagePadding]}>Discover</Text>
+      <Animated.FlatList
+        horizontal
+        data={HomeScreenData}
+        renderItem={renderModalCard}
+        keyExtractor={keyExtractor}
+        snapToInterval={MODAL_ITEM_WIDTH}
+        pagingEnabled
+        showsHorizontalScrollIndicator={false}
+        contentContainerStyle={styles.modelCardList}
+        pagingEnabled
+        decelerationRate={0}
+        bounce={false}
+        onScroll={Animated.event(
+          [
+            {
+              nativeEvent: {
+                contentOffset: { x: modalScrollX },
+              },
+            },
+          ],
+          {
+            useNativeDriver: true,
+          }
+        )}
+        scrollEventThrottle={16}
+        style={GlobalStyles.flex}
+      />
     </View>
   );
 };
@@ -127,5 +159,12 @@ const styles = StyleSheet.create({
   },
   indicatorContainer: {
     height: 50,
+  },
+  modelCardList: {
+    alignItems: "center",
+  },
+  carouselFlatlist: {
+    height: height / 3.4,
+    flexGrow: 0,
   },
 });
