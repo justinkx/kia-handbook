@@ -11,8 +11,8 @@ const { width } = Dimensions.get("window");
 
 export default class Image360Viewer extends PureComponent {
   static defaultProps = {
-    width: width - 30, // width of image
-    height: 250, // height of image
+    width: width - 10, // width of image
+    height: 200, // height of image
     srcSet: [],
     rotationRatio: 0.5, // the drag distance compares to 180 degree: width / rotationRatio = 180 degree,
   };
@@ -85,7 +85,7 @@ export default class Image360Viewer extends PureComponent {
         <Image
           source={this.getImage()}
           style={[{ width, height }]}
-          resizeMode="cover"
+          resizeMode="contain"
         />
       </View>
     );

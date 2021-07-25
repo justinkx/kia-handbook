@@ -288,69 +288,100 @@ export const HomeScreenData = [
     design: {
       gt: {
         name: "Sonet GT Line",
+        exteriorId: "sxw5k2g1uhh00c",
         colors: [
           {
             paint: "Intense Red",
             color: "#b20220",
-            image:
-              "https://www.kia.com/content/dam/kia2/in/en/images/360vr/sonet/sxw5k2g1uhh00c/exterior/a6r/08-d.png",
+            images: vrImageGenerator(
+              "sonet/sxw5k2g1uhh00c/exterior/a6r/",
+              1,
+              72
+            ),
           },
           {
             paint: "Steel Silver",
             color: "#aeadad",
-            image:
-              "https://www.kia.com/content/dam/kia2/in/en/images/360vr/sonet/sxw5k2g1uhh00c/exterior/klg/08-d.png",
+            images: vrImageGenerator(
+              "sonet/sxw5k2g1uhh00c/exterior/klg/",
+              1,
+              72
+            ),
           },
           {
             paint: "Gravity Grey",
             color: "#34373a",
-            image:
-              "https://www.kia.com/content/dam/kia2/in/en/images/360vr/sonet/sxw5k2g1uhh00c/exterior/kdg/08-d.png",
+            images: vrImageGenerator(
+              "sonet/sxw5k2g1uhh00c/exterior/kdg/",
+              1,
+              72
+            ),
           },
           {
             paint: "Aurora Black Pearl",
             color: "#161719",
-            image:
-              "https://www.kia.com/content/dam/kia2/in/en/images/360vr/sonet/sxw5k2g1uhh00c/exterior/abp/08-d.png",
+            images: vrImageGenerator(
+              "sonet/sxw5k2g1uhh00c/exterior/abp/",
+              1,
+              72
+            ),
           },
           {
             paint: "Intelligency Blue",
             color: "#0b21b3",
-            image:
-              "https://www.kia.com/content/dam/kia2/in/en/images/360vr/sonet/sxw5k2g1uhh00c/exterior/bnb/08-d.png",
+            images: vrImageGenerator(
+              "sonet/sxw5k2g1uhh00c/exterior/bnb/",
+              1,
+              72
+            ),
           },
           {
             paint: "Beige Gold",
             color: "#aba186",
-            image:
-              "https://www.kia.com/content/dam/kia2/in/en/images/360vr/sonet/sxw5k2g1uhh00c/exterior/qyg/08-d.png",
+            images: vrImageGenerator(
+              "sonet/sxw5k2g1uhh00c/exterior/qyg/",
+              1,
+              72
+            ),
           },
           {
             paint: "Glacier White Pearl",
             color: "#f3f9fc",
-            image:
-              "https://www.kia.com/content/dam/kia2/in/en/images/360vr/sonet/sxw5k2g1uhh00c/exterior/gwp/08-d.png",
+            images: vrImageGenerator(
+              "sonet/sxw5k2g1uhh00c/exterior/gwp/",
+              1,
+              72
+            ),
           },
           {
             paint: "Intense Red + Aurora black pearl",
             dualTone: true,
             colors: ["#b20220", "#161818"],
-            image:
-              "https://www.kia.com/content/dam/kia2/in/en/images/360vr/sonet/sxw5k2g1uhh00c/exterior/gb3/08-d.png",
+            images: vrImageGenerator(
+              "sonet/sxw5k2g1uhh00c/exterior/gb3/",
+              1,
+              72
+            ),
           },
           {
             paint: "Glacier white Pearl + Aurora black pearl",
             dualTone: true,
             colors: ["#f3f9fc", "#161818"],
-            image:
-              "https://www.kia.com/content/dam/kia2/in/en/images/360vr/sonet/sxw5k2g1uhh00c/exterior/gb2/08-d.png",
+            images: vrImageGenerator(
+              "sonet/sxw5k2g1uhh00c/exterior/gb2/",
+              1,
+              72
+            ),
           },
           {
             paint: "Beige gold + Aurora black pearl",
             dualTone: true,
             colors: ["#aaa085", "#010000"],
-            image:
-              "https://www.kia.com/content/dam/kia2/in/en/images/360vr/sonet/sxw5k2g1uhh00c/exterior/gc1/08-d.png",
+            images: vrImageGenerator(
+              "sonet/sxw5k2g1uhh00c/exterior/gc1/",
+              1,
+              72
+            ),
           },
         ],
       },
@@ -360,65 +391,95 @@ export const HomeScreenData = [
           {
             paint: "Intense Red",
             color: "#b20220",
-            image:
-              "https://www.kia.com/content/dam/kia2/in/en/images/360vr/sonet/sxw5k2g1xpp00b/exterior/a6r/08-d.png",
+            images: vrImageGenerator(
+              "sonet/sxw5k2g1xpp00b/exterior/a6r/",
+              1,
+              72
+            ),
           },
           {
             paint: "Steel Silver",
             color: "#aeadad",
-            image:
-              "https://www.kia.com/content/dam/kia2/in/en/images/360vr/sonet/sxw5k2g1xpp00b/exterior/klg/08-d.png",
+            images: vrImageGenerator(
+              "sonet/sxw5k2g1xpp00b/exterior/klg/",
+              1,
+              72
+            ),
           },
           {
             paint: "Gravity Grey",
             color: "#34373a",
-            image:
-              "https://www.kia.com/content/dam/kia2/in/en/images/360vr/sonet/sxw5k2g1xpp00b/exterior/kdg/08-d.png",
+            images: vrImageGenerator(
+              "sonet/sxw5k2g1xpp00b/exterior/kdg/",
+              1,
+              72
+            ),
           },
           {
             paint: "Aurora Black Pearl",
             color: "#161719",
-            image:
-              "https://www.kia.com/content/dam/kia2/in/en/images/360vr/sonet/sxw5k2g1xpp00b/exterior/abp/08-d.png",
+            images: vrImageGenerator(
+              "sonet/sxw5k2g1xpp00b/exterior/abp/",
+              1,
+              72
+            ),
           },
           {
             paint: "Intelligency Blue",
             color: "#0b21b3",
-            image:
-              "https://www.kia.com/content/dam/kia2/in/en/images/360vr/sonet/sxw5k2g1xpp00b/exterior/bnb/08-d.png",
+            images: vrImageGenerator(
+              "sonet/sxw5k2g1xpp00b/exterior/bnb/",
+              1,
+              72
+            ),
           },
           {
             paint: "Beige Gold",
             color: "#aba186",
-            image:
-              "https://www.kia.com/content/dam/kia2/in/en/images/360vr/sonet/sxw5k2g1xpp00b/exterior/qyg/08-d.png",
+            images: vrImageGenerator(
+              "sonet/sxw5k2g1xpp00b/exterior/qyg/",
+              1,
+              72
+            ),
           },
           {
             paint: "Glacier White Pearl",
             color: "#f3f9fc",
-            image:
-              "https://www.kia.com/content/dam/kia2/in/en/images/360vr/sonet/sxw5k2g1xpp00b/exterior/gwp/08-d.png",
+            images: vrImageGenerator(
+              "sonet/sxw5k2g1xpp00b/exterior/gwp/",
+              1,
+              72
+            ),
           },
           {
             paint: "Intense Red + Aurora black pearl",
             dualTone: true,
             colors: ["#b20220", "#161818"],
-            image:
-              "https://www.kia.com/content/dam/kia2/in/en/images/360vr/sonet/sxw5k2g1xpp00b/exterior/gb3/08-d.png",
+            images: vrImageGenerator(
+              "sonet/sxw5k2g1xpp00b/exterior/gb3/",
+              1,
+              72
+            ),
           },
           {
             paint: "Glacier white Pearl + Aurora black pearl",
             dualTone: true,
             colors: ["#f3f9fc", "#161818"],
-            image:
-              "https://www.kia.com/content/dam/kia2/in/en/images/360vr/sonet/sxw5k2g1xpp00b/exterior/gb2/08-d.png",
+            images: vrImageGenerator(
+              "sonet/sxw5k2g1xpp00b/exterior/gb2/",
+              1,
+              72
+            ),
           },
           {
             paint: "Beige gold + Aurora black pearl",
             dualTone: true,
             colors: ["#aaa085", "#010000"],
-            image:
-              "https://www.kia.com/content/dam/kia2/in/en/images/360vr/sonet/sxw5k2g1xpp00b/exterior/gc1/08-d.png",
+            images: vrImageGenerator(
+              "sonet/sxw5k2g1xpp00b/exterior/gc1/",
+              1,
+              72
+            ),
           },
         ],
       },
@@ -441,6 +502,41 @@ export const HomeScreenData = [
         "https://www.kia.com/content/dam/kia2/in/en/images/our-vehicles/carnival/lp-desktop.png",
       headerLogo:
         "https://www.kia.com/content/dam/kia2/in/en/images/our-vehicles/carnival/showroom/carnival_unit.png",
+    },
+    design: {
+      gt: {
+        name: "CARNIVAL Limousine",
+        exteriorId: "apb92fc5jgg041",
+        colors: [
+          {
+            paint: "Aurora Black Pearl",
+            color: "#161719",
+            images: vrImageGenerator(
+              "carnival/apb92fc5jgg041/exterior/abp/",
+              1,
+              72
+            ),
+          },
+          {
+            paint: "Glacier White Pearl",
+            color: "#f3f9fc",
+            images: vrImageGenerator(
+              "carnival/apb92fc5jgg041/exterior/gwp/",
+              1,
+              72
+            ),
+          },
+          {
+            paint: "Steel Silver",
+            color: "#aeadad",
+            images: vrImageGenerator(
+              "carnival/apb92fc5jgg041/exterior/klg/",
+              1,
+              72
+            ),
+          },
+        ],
+      },
     },
   },
 ];

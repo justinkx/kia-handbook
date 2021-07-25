@@ -36,7 +36,7 @@ export default memo(ColorPicker);
 
 const ColorPellette = memo(({ pallette, onSelectColor, size }) => {
   const PALLETTE_SIZE = useMemo(
-    () => (PICKER_SIZE - MARGIN_RIGHT * size) / size,
+    () => Math.min((PICKER_SIZE - MARGIN_RIGHT * size) / size, 20),
     [size]
   );
   return (
