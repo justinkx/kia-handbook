@@ -1,14 +1,31 @@
-import React, { memo } from "react";
-import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import React, { memo, useMemo } from "react";
+import {
+  StyleSheet,
+  Dimensions,
+  View,
+  TouchableOpacity,
+  Text,
+} from "react-native";
+import _size from "lodash/size";
+import GlobalStyle from "../Styles/GlobalStyle";
 
-const PALLETTE_SIZE = 10;
+const { width } = Dimensions.get("window");
 
-const ColorPicker = ({ colors, selectedColor }) => {
+const PICKER_SIZE = width - 30;
+const MARGIN_RIGHT = 8;
+
+const ColorPicker = ({ colors, selectedColor, onSelectColor }) => {
   return (
-    <View>
+    <View style={[GlobalStyle.center, styles.container]}>
+      <Text style={styles.paint}>{selectedColor.paint}</Text>
       <View style={styles.wrapper}>
         {colors.map((color, index) => (
-          <ColorPellette pallette={color} key={index} />
+          <ColorPellette
+            onSelectColor={onSelectColor}
+            pallette={color}
+            key={index}
+            size={_size(colors)}
+          />
         ))}
       </View>
     </View>
@@ -17,24 +34,62 @@ const ColorPicker = ({ colors, selectedColor }) => {
 
 export default memo(ColorPicker);
 
-const ColorPellette = memo(({ pallette }) => {
+const ColorPellette = memo(({ pallette, onSelectColor, size }) => {
+  const PALLETTE_SIZE = useMemo(
+    () => (PICKER_SIZE - MARGIN_RIGHT * size) / size,
+    [size]
+  );
   return (
-    <TouchableOpacity
-      style={[styles.pallette, { backgroundColor: pallette.color }]}
-    ></TouchableOpacity>
+    <TouchableOpacity onPress={() => onSelectColor(pallette)}>
+      <View
+        style={[
+          styles.pallette,
+          {
+            backgroundColor: pallette.dualTone
+              ? pallette.colors[0]
+              : pallette.color,
+            width: PALLETTE_SIZE,
+            height: PALLETTE_SIZE,
+            borderRadius: PALLETTE_SIZE / 2,
+          },
+        ]}
+      >
+        {pallette.dualTone && (
+          <View
+            style={{
+              backgroundColor: pallette.colors[1],
+              width: PALLETTE_SIZE / 2,
+              height: PALLETTE_SIZE,
+              position: "absolute",
+            }}
+          />
+        )}
+      </View>
+    </TouchableOpacity>
   );
 });
 
 const styles = StyleSheet.create({
+  container: {
+    padding: 15,
+  },
+  paint: {
+    width: "100%",
+    fontSize: 15,
+    fontWeight: "bold",
+    textAlign: "left",
+    paddingBottom: 10,
+  },
   wrapper: {
     flexDirection: "row",
     justifyContent: "flex-start",
     alignItems: "center",
   },
   pallette: {
-    width: PALLETTE_SIZE,
-    height: PALLETTE_SIZE,
-    borderRadius: PALLETTE_SIZE / 2,
     marginRight: 8,
+    borderWidth: StyleSheet.hairlineWidth,
+    borderColor: "#00000033",
+    position: "relative",
+    overflow: "hidden",
   },
 });
