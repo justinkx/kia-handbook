@@ -15,6 +15,7 @@ import Animated, {
   useAnimatedScrollHandler,
   runOnJS,
 } from "react-native-reanimated";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 import GlobalStyles from "../Styles/GlobalStyle";
 import { HomeScreenData } from "../Utils/HomeScreen.data";
@@ -108,7 +109,7 @@ const HomeScreen = ({ navigation }) => {
   });
 
   return (
-    <View style={[GlobalStyles.flex, GlobalStyles.whiteBackground]}>
+    <SafeAreaView style={[GlobalStyles.flex, GlobalStyles.whiteBackground]}>
       <View style={[GlobalStyles.row, GlobalStyles.pagePadding]}>
         <Image resizeMode="contain" source={KIA} style={styles.kia} />
         <Text style={styles.name}>{HomeScreenData[selectedIndex].name}</Text>
@@ -146,7 +147,7 @@ const HomeScreen = ({ navigation }) => {
         scrollEventThrottle={16}
         style={GlobalStyles.flex}
       />
-    </View>
+    </SafeAreaView>
   );
 };
 
