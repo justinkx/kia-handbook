@@ -8,6 +8,11 @@ export const HomeScreenData = [
       "https://www.kia.com/content/dam/kia2/in/en/images/360vr/seltos/tiw5k4g1uhh132/exterior/a6r/17-d.png",
       "https://www.kia.com/content/dam/kia2/in/en/images/360vr/seltos/tiw5k4g1uhh132/exterior/a6r/35-d.png",
     ],
+    header: {
+      bannerVideo:
+        "https://www.kia.com/content/dam/kia2/in/en/images/our-vehicles/seltos/showroom/Seltos-banner-video-Mobile.mp4",
+      bannerImage: null,
+    },
   },
   {
     name: "Sonet",

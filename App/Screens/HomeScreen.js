@@ -32,7 +32,7 @@ const SLIDER_SIZE = DATA_SIZE + 2;
 
 const AnimatedFlatList = Animated.createAnimatedComponent(FlatList);
 
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }) => {
   const kiaModalData = useMemo(
     () => [
       {
@@ -74,9 +74,16 @@ const HomeScreen = () => {
       if (item.key) {
         return <View style={styles.spacerStyle} />;
       }
-      return <ModelsCard item={item} scrollX={modalScrollX} index={index} />;
+      return (
+        <ModelsCard
+          item={item}
+          scrollX={modalScrollX}
+          index={index}
+          navigation={navigation}
+        />
+      );
     },
-    [modalScrollX]
+    [modalScrollX, navigation]
   );
 
   const setAnimatedIndex = useCallback((event) => {
