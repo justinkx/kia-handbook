@@ -7,6 +7,7 @@ import {
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import HeaderComponent from "../Components/HeaderComponent";
+import BackButton from "../Components/BackButton";
 
 const DetailsScreen = ({ navigation, route }) => {
   const { onScroll, containerPaddingTop, translateY } =
@@ -14,7 +15,7 @@ const DetailsScreen = ({ navigation, route }) => {
   const insets = useSafeAreaInsets();
   const { details } = useMemo(() => route.params, [route]);
   return (
-    <>
+    <View>
       <Animated.ScrollView
         onScroll={onScroll}
         contentContainerStyle={{ paddingTop: containerPaddingTop }}
@@ -23,7 +24,8 @@ const DetailsScreen = ({ navigation, route }) => {
       <CollapsibleSubHeaderAnimator translateY={translateY}>
         <HeaderComponent details={details} />
       </CollapsibleSubHeaderAnimator>
-    </>
+      <BackButton navigation={navigation} top={insets.top} />
+    </View>
   );
 };
 
