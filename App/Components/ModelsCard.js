@@ -1,16 +1,18 @@
-import React, { memo } from "react";
-import { StyleSheet, Text, View, Dimensions } from "react-native";
+import React, { memo, useCallback } from "react";
+import { StyleSheet, TouchableOpacity, View, Dimensions } from "react-native";
 import Animated, {
   useAnimatedStyle,
   interpolate,
   interpolateColor,
 } from "react-native-reanimated";
 
+import NAV_CONSTANTS from "../Navigation/NavigationConstants";
+
 const ITEM_SPACING = 15;
 const { width } = Dimensions.get("window");
 const ITEM_WIDTH = width * 0.7;
 
-const ModelsCard = ({ item, index, scrollX }) => {
+const ModelsCard = ({ item, index, scrollX, navigation }) => {
   const animatedViewStyle = useAnimatedStyle(() => ({
     transform: [
       {
@@ -26,6 +28,10 @@ const ModelsCard = ({ item, index, scrollX }) => {
       },
     ],
   }));
+
+  const goToDetails = useCallback(() => {
+    navigation.push(NAV_CONSTANTS.DETAILS_SCREEN, { details: item });
+  }, [navigation, item]);
 
   const animatedScale = useAnimatedStyle(() => ({
     transform: [
@@ -64,19 +70,21 @@ const ModelsCard = ({ item, index, scrollX }) => {
 
   return (
     <View style={styles.container}>
-      <Animated.View style={[styles.animatedView, animatedViewStyle]}>
-        <View style={[styles.maskedLeftView]} />
-        <View style={[styles.maskedRightView]} />
-        <Animated.Image
-          source={{ uri: item.images[0] }}
-          style={[styles.image, animatedScale]}
-          resizeMode="contain"
-        />
-        <Animated.Text style={[styles.name, animatedTitleStyle]}>
-          {item.name}
-        </Animated.Text>
-        <Animated.Text>{item.description}</Animated.Text>
-      </Animated.View>
+      <TouchableOpacity onPress={goToDetails}>
+        <Animated.View style={[styles.animatedView, animatedViewStyle]}>
+          <View style={[styles.maskedLeftView]} />
+          <View style={[styles.maskedRightView]} />
+          <Animated.Image
+            source={{ uri: item.images[0] }}
+            style={[styles.image, animatedScale]}
+            resizeMode="contain"
+          />
+          <Animated.Text style={[styles.name, animatedTitleStyle]}>
+            {item.name}
+          </Animated.Text>
+          <Animated.Text>{item.description}</Animated.Text>
+        </Animated.View>
+      </TouchableOpacity>
     </View>
   );
 };

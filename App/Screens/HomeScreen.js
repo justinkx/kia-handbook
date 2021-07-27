@@ -15,6 +15,7 @@ import Animated, {
   useAnimatedScrollHandler,
   runOnJS,
 } from "react-native-reanimated";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 import GlobalStyles from "../Styles/GlobalStyle";
 import { HomeScreenData } from "../Utils/HomeScreen.data";
@@ -32,7 +33,7 @@ const SLIDER_SIZE = DATA_SIZE + 2;
 
 const AnimatedFlatList = Animated.createAnimatedComponent(FlatList);
 
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }) => {
   const kiaModalData = useMemo(
     () => [
       {
@@ -74,9 +75,16 @@ const HomeScreen = () => {
       if (item.key) {
         return <View style={styles.spacerStyle} />;
       }
-      return <ModelsCard item={item} scrollX={modalScrollX} index={index} />;
+      return (
+        <ModelsCard
+          item={item}
+          scrollX={modalScrollX}
+          index={index}
+          navigation={navigation}
+        />
+      );
     },
-    [modalScrollX]
+    [modalScrollX, navigation]
   );
 
   const setAnimatedIndex = useCallback((event) => {
@@ -101,7 +109,7 @@ const HomeScreen = () => {
   });
 
   return (
-    <View style={[GlobalStyles.flex, GlobalStyles.whiteBackground]}>
+    <SafeAreaView style={[GlobalStyles.flex, GlobalStyles.whiteBackground]}>
       <View style={[GlobalStyles.row, GlobalStyles.pagePadding]}>
         <Image resizeMode="contain" source={KIA} style={styles.kia} />
         <Text style={styles.name}>{HomeScreenData[selectedIndex].name}</Text>
@@ -139,7 +147,7 @@ const HomeScreen = () => {
         scrollEventThrottle={16}
         style={GlobalStyles.flex}
       />
-    </View>
+    </SafeAreaView>
   );
 };
 
