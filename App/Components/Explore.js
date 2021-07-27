@@ -38,16 +38,16 @@ const Explore = ({ details }) => {
   const onSlidingComplete = useCallback(async () => {
     const selectedTime = sliderRef?.current.state.item;
     setTime(selectedTime);
-    videoRef?.current?.playFromPositionAsync(
-      POSITION_TIME_MAP[selectedTime][0]
-    );
+    videoRef?.current
+      ?.playFromPositionAsync(POSITION_TIME_MAP[selectedTime][0])
+      .then((data) => console.log(data));
   }, []);
 
   const handlePlaybackStatusUpdate = useCallback(
     async (AVPlaybackStatus) => {
       try {
         if (
-          AVPlaybackStatus?.positionMillis >=
+          AVPlaybackStatus?.positionMillis ===
           POSITION_TIME_MAP?.[defaultTime][1]
         ) {
           await videoRef.current.pauseAsync();
