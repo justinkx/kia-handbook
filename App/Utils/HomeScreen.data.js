@@ -486,6 +486,18 @@ export const HomeScreenData = [
         ],
       },
     },
+    explore: {
+      video:
+        "https://www.kia.com/content/dam/kia2/in/en/images/our-vehicles/seltos/showroom/video/SELTOS-USP-Full-Video-d-01.mp4",
+      POSITION_TIME_MAP: {
+        0: [0, 300],
+        1: [300, 1900],
+        2: [1900, 3200],
+        3: [3200, 4100],
+        4: [4100, 5000],
+        5: [5000, 6016],
+      },
+    },
   },
   {
     name: "Carnival",
@@ -539,6 +551,18 @@ export const HomeScreenData = [
             ),
           },
         ],
+      },
+    },
+    explore: {
+      video:
+        "https://www.kia.com/content/dam/kia2/in/en/our-vehicles/showroom/carnival-product/Video/Desktop/explore-section-video-v5.mp4",
+      POSITION_TIME_MAP: {
+        0: [0, 300],
+        1: [300, 1900],
+        2: [1900, 3200],
+        3: [3200, 4100],
+        4: [4100, 5000],
+        5: [5000, 6016],
       },
     },
   },

@@ -31,7 +31,7 @@ const DetailsScreen = ({ navigation, route }) => {
         scrollIndicatorInsets={{ top: insets.top }}
       >
         <Design details={details} />
-        <Explore details={details} />
+        <Explore explore={details?.explore} />
       </Animated.ScrollView>
       <CollapsibleSubHeaderAnimator translateY={translateY}>
         <HeaderComponent details={details} />
