@@ -8,24 +8,14 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import HeaderComponent from "../Components/HeaderComponent";
 import BackButton from "../Components/BackButton";
-import Image360Viewer from "../Components/Image360Viewer";
-import ColorPicker from "../Components/ColorPicker";
+import Design from "../Components/Design";
 
 const DetailsScreen = ({ navigation, route }) => {
-  const [selectedDesign, setDesign] = useState("gt");
-  const [selectedColor, setColor] = useState(
-    route.params?.details?.design?.gt?.colors[0]
-  );
-
   const { details } = useMemo(() => route.params, [route]);
 
   const { onScroll, containerPaddingTop, translateY } =
     useCollapsibleSubHeader();
   const insets = useSafeAreaInsets();
-
-  const onSelectColor = useCallback((selected) => {
-    setColor(selected);
-  }, []);
 
   return (
     <View>
@@ -34,12 +24,7 @@ const DetailsScreen = ({ navigation, route }) => {
         contentContainerStyle={{ paddingTop: containerPaddingTop }}
         scrollIndicatorInsets={{ top: insets.top }}
       >
-        {selectedColor && <Image360Viewer srcSet={selectedColor?.images} />}
-        <ColorPicker
-          selectedColor={selectedColor}
-          colors={details?.design[selectedDesign]?.colors}
-          onSelectColor={onSelectColor}
-        />
+        <Design details={details} />
       </Animated.ScrollView>
       <CollapsibleSubHeaderAnimator translateY={translateY}>
         <HeaderComponent details={details} />

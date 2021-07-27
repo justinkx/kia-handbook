@@ -29,7 +29,8 @@ export const HomeScreenData = [
         "https://www.kia.com/content/dam/kia2/in/en/images/our-vehicles/seltos/showroom/seltos_unit.png",
     },
     design: {
-      gt: {
+      gtLine: true,
+      GT: {
         name: "Seltos GT Line",
         exteriorId: "tiw5k4g1uhh132",
         colors: [
@@ -148,7 +149,7 @@ export const HomeScreenData = [
           },
         ],
       },
-      tech: {
+      Tech: {
         name: "Seltos GT Line",
         exteriorId: "tiw51mc57pp00d",
         colors: [
@@ -286,7 +287,8 @@ export const HomeScreenData = [
       headerLogo: null,
     },
     design: {
-      gt: {
+      gtLine: true,
+      GT: {
         name: "Sonet GT Line",
         exteriorId: "sxw5k2g1uhh00c",
         colors: [
@@ -385,7 +387,7 @@ export const HomeScreenData = [
           },
         ],
       },
-      tech: {
+      Tech: {
         name: "SONET Tech Line",
         colors: [
           {
@@ -504,7 +506,8 @@ export const HomeScreenData = [
         "https://www.kia.com/content/dam/kia2/in/en/images/our-vehicles/carnival/showroom/carnival_unit.png",
     },
     design: {
-      gt: {
+      gtLine: false,
+      GT: {
         name: "CARNIVAL Limousine",
         exteriorId: "apb92fc5jgg041",
         colors: [
