@@ -10,6 +10,7 @@ import { StatusBar } from "expo-status-bar";
 import HeaderComponent from "../Components/HeaderComponent";
 import BackButton from "../Components/BackButton";
 import Design from "../Components/Design";
+import Explore from "../Components/Explore";
 
 const DetailsScreen = ({ navigation, route }) => {
   const { details } = useMemo(() => route.params, [route]);
@@ -27,6 +28,7 @@ const DetailsScreen = ({ navigation, route }) => {
         scrollIndicatorInsets={{ top: insets.top }}
       >
         <Design details={details} />
+        <Explore details={details} />
       </Animated.ScrollView>
       <CollapsibleSubHeaderAnimator translateY={translateY}>
         <HeaderComponent details={details} />

@@ -1,5 +1,5 @@
 import React, { memo, useRef, useEffect } from "react";
-import { StyleSheet, Image, View, Text } from "react-native";
+import { StyleSheet, Image, View } from "react-native";
 import { Video } from "expo-av";
 
 const HEADER_HEIGHT = 250;
