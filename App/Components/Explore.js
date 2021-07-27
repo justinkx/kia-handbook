@@ -20,6 +20,11 @@ const Explore = ({ explore }) => {
   const sliderRef = useRef(null);
   const [defaultTime, setTime] = useState(sliderOptions[0].value);
 
+  const exploreDetails = useMemo(
+    () => explore?.details[defaultTime],
+    [defaultTime, explore]
+  );
+
   useEffect(() => {
     async function init() {
       if (explore?.video) {

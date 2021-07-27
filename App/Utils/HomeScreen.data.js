@@ -280,6 +280,38 @@ export const HomeScreenData = [
         4: [4000, 5050],
         5: [5050, 6016],
       },
+      details: {
+        0: {
+          title: "LED headlamps with DRLs",
+          description:
+            "The aesthetically crafted Crown Jewel LED headlamps with Heartbeat DRLs give the car sleek looks and a distinctive character.",
+        },
+        1: {
+          title: "Alloy wheels",
+          description:
+            "The elegant yet sporty crystal cut alloy wheels adds to the sporty premium appeal of the car.",
+        },
+        2: {
+          title: "LED tail lamps",
+          description:
+            "The scintillating Heartbeat-shaped Tail Lamps builds on the robust stance of the car.",
+        },
+        3: {
+          title: "Sunroof",
+          description:
+            "With an electric Sunroof over-head, the car adds a sense of freedom and modernity to your drive with an airy cabin.",
+        },
+        4: {
+          title: "2-step Rear Recline Seats",
+          description:
+            "The Seat reclining feature at the back enhances passenger comfort by enabling the freedom to change their sitting posture with ease.",
+        },
+        5: {
+          title: "Ambient Mood Lighting",
+          description:
+            "The Ambient and LED Sound mood lights sets your mood right for every drive.",
+        },
+      },
     },
   },
   {
@@ -498,6 +530,50 @@ export const HomeScreenData = [
         ],
       },
     },
+    explore: {
+      video:
+        "https://www.kia.com/content/dam/kia2/in/en/images/our-vehicles/sonet/showroom/video/my21-explore-desktop.mp4",
+      POSITION_TIME_MAP: {
+        0: [0, 1100],
+        1: [1100, 2000],
+        2: [2000, 3000],
+        3: [3000, 4000],
+        4: [4000, 5050],
+        5: [5050, 6016],
+      },
+      details: {
+        0: {
+          title: "LED Headlamps with DRLs",
+          description:
+            "Crown Jewel LED Headlamps highlight the aggressive front and gives it a wild and muscular road presence",
+        },
+        1: {
+          title: "Alloy wheels",
+          description:
+            "R16 Crystal Cut Alloys make the wheels look sportier and premium",
+        },
+        2: {
+          title: "LED Tail lamps",
+          description:
+            "Heartbeat LED tail Lamps make the back look aggressive and distinct",
+        },
+        3: {
+          title: "Sunroof",
+          description:
+            "Electric Sunroof gives compact SUV lovers a chance to connect with the outside world.",
+        },
+        4: {
+          title: "Connected panel",
+          description:
+            'The connected 26.03cm (10.25") HD touchscreen and Advance 10.67cm (4.2”) Color display panel makes the cabin look futuristic and reduces distraction while driving.',
+        },
+        5: {
+          title: "LED sound mood lights",
+          description:
+            "LED Sound Mood Lights lets your favourite tracks roar in the urban jungle.",
+        },
+      },
+    },
   },
   {
     name: "Carnival",
@@ -563,6 +639,38 @@ export const HomeScreenData = [
         3: [3200, 4100],
         4: [4100, 5000],
         5: [5000, 6016],
+      },
+      details: {
+        0: {
+          title: "LED Headlamps",
+          description:
+            "The aesthetically crafted LED Headlamp Cluster gives the Carnival a distinctive character.",
+        },
+        1: {
+          title: "Sputtering Alloy Wheels",
+          description:
+            "With contemporary looks and elegant style, the R18-45.72 cm (18”) Sputtering Alloy Wheels of Kia Carnival are machined to perfection for an undeniable presence on road.",
+        },
+        2: {
+          title: "Sliding Doors",
+          description:
+            "With the one-touch powered Sliding Doors, experience extravagance as you effortlessly move in and out of the car.",
+        },
+        3: {
+          title: "VIP Seats with RSE",
+          description:
+            "Settle into the lap of luxury with the soft, premium Napa Leather Upholstery and the 25.65cm (10.1”) Touchscreen Rear Seat Entertainment System of the Carnival.",
+        },
+        4: {
+          title: "Tri-Zone Automatic Temperature Control",
+          description:
+            "To maximize comfort, the Tri-Zone Temperature Control System enables all – driver, front and rear passengers, to adjust the temperature and air-flow settings just as they like it.",
+        },
+        6: {
+          title: "Dual Sunroof",
+          description:
+            "The dual sunroof lets in sunlight and unveils a slice of the big, blue sky for passengers in every row.",
+        },
       },
     },
   },
