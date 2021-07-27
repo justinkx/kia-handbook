@@ -1,10 +1,11 @@
 import React, { useMemo, memo, useState, useCallback } from "react";
-import { StyleSheet, Animated, View, Text } from "react-native";
+import { StyleSheet, Animated, View } from "react-native";
 import {
   useCollapsibleSubHeader,
   CollapsibleSubHeaderAnimator,
 } from "react-navigation-collapsible";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { StatusBar } from "expo-status-bar";
 
 import HeaderComponent from "../Components/HeaderComponent";
 import BackButton from "../Components/BackButton";
@@ -19,6 +20,7 @@ const DetailsScreen = ({ navigation, route }) => {
 
   return (
     <View>
+      <StatusBar style="light" animated />
       <Animated.ScrollView
         onScroll={onScroll}
         contentContainerStyle={{ paddingTop: containerPaddingTop }}

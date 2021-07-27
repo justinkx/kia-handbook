@@ -5,7 +5,7 @@ import AppNavigation from "./Navigation/AppNavigation";
 
 export default App = () => (
   <>
-    <StatusBar />
+    <StatusBar animated style="dark" />
     <AppNavigation />
   </>
 );

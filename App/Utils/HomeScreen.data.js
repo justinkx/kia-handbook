@@ -31,7 +31,7 @@ export const HomeScreenData = [
     design: {
       gtLine: true,
       GT: {
-        name: "Seltos GT Line",
+        name: "SELTOS GT Line",
         exteriorId: "tiw5k4g1uhh132",
         colors: [
           {
@@ -150,7 +150,7 @@ export const HomeScreenData = [
         ],
       },
       Tech: {
-        name: "Seltos GT Line",
+        name: "SELTOS Tech Line",
         exteriorId: "tiw51mc57pp00d",
         colors: [
           {
@@ -289,7 +289,7 @@ export const HomeScreenData = [
     design: {
       gtLine: true,
       GT: {
-        name: "Sonet GT Line",
+        name: "SONET GT Line",
         exteriorId: "sxw5k2g1uhh00c",
         colors: [
           {

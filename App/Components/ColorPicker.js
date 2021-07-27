@@ -16,7 +16,7 @@ const MARGIN_RIGHT = 8;
 
 const ColorPicker = ({ colors, selectedColor, onSelectColor }) => {
   return (
-    <View style={[GlobalStyle.center, styles.container]}>
+    <View style={[GlobalStyle.center]}>
       <Text style={styles.paint}>{selectedColor.paint}</Text>
       <View style={styles.wrapper}>
         {colors.map((color, index) => (
@@ -70,9 +70,6 @@ const ColorPellette = memo(({ pallette, onSelectColor, size }) => {
 });
 
 const styles = StyleSheet.create({
-  container: {
-    padding: 15,
-  },
   paint: {
     width: "100%",
     fontSize: 15,
