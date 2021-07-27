@@ -1,6 +1,8 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
 
 import COLORS from "./Colors";
+
+const { width, height } = Dimensions.get("window");
 
 const PAGE_PADDING = 15;
 
@@ -27,3 +29,5 @@ export default GlobalStyles = StyleSheet.create({
     alignItems: "center",
   },
 });
+
+export { width, height };

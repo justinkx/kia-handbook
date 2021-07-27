@@ -17,14 +17,13 @@ import Animated, {
 } from "react-native-reanimated";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-import GlobalStyles from "../Styles/GlobalStyle";
+import GlobalStyles, { width, height } from "../Styles/GlobalStyle";
 import { HomeScreenData } from "../Utils/HomeScreen.data";
 import CarouselImage from "../Components/CarouselImage";
 import ModelsCard from "../Components/ModelsCard";
 import CarouselPagination from "../Components/CarouselPagination";
 
 const KIA = require("../../assets/kia.png");
-const { width, height } = Dimensions.get("window");
 const MODAL_ITEM_WIDTH = width * 0.7;
 const IMAGE_VIEW_WIDTH = width - 30;
 const SPACER_ITEM_SIZE = (width - MODAL_ITEM_WIDTH) / 2;
@@ -170,7 +169,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   carouselFlatlist: {
-    height: height / 3.4,
+    height: height / 3.5,
     flexGrow: 0,
   },
   spacerStyle: {

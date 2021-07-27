@@ -26,7 +26,7 @@ const CarouselImage = ({ item, scrollX, index }) => {
   }));
 
   return (
-    <View style={[{ width: IMAGE_VIEW_WIDTH }]}>
+    <View style={[{ width: IMAGE_VIEW_WIDTH, height: height / 3.5 }]}>
       <View
         style={[
           GlobalStyles.center,

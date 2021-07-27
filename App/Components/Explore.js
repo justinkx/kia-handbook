@@ -3,7 +3,9 @@ import { StyleSheet, Text, View } from "react-native";
 import { Video } from "expo-av";
 import SnapSlider from "react-native-snap-slider";
 
-const EXPLORE_HEIGHT = 350;
+import { width, height } from "../Styles/GlobalStyle";
+
+const EXPLORE_HEIGHT = height / 3.6;
 
 const sliderOptions = [
   { label: "1", value: 0 },
@@ -19,16 +21,20 @@ const Explore = ({ explore }) => {
   const [defaultTime, setTime] = useState(sliderOptions[0].value);
 
   useEffect(() => {
-    if (explore?.video) {
-      videoRef?.current?.loadAsync(
-        {
-          uri: explore?.video,
-        },
-        { progressUpdateIntervalMillis: 1 },
-        false
-      );
+    async function init() {
+      if (explore?.video) {
+        await videoRef?.current?.loadAsync(
+          {
+            uri: explore?.video,
+          },
+          { progressUpdateIntervalMillis: 1 },
+          false
+        );
+        await videoRef?.current.playAsync();
+      }
     }
-  }, [explore?.video]);
+    init();
+  }, [explore]);
 
   const onSlidingComplete = useCallback(async () => {
     const selectedTime = sliderRef?.current.state.item;
@@ -40,20 +46,20 @@ const Explore = ({ explore }) => {
         toleranceMillisAfter: 10,
       }
     );
-  }, [explore?.POSITION_TIME_MAP]);
+  }, [explore]);
 
   const handlePlaybackStatusUpdate = useCallback(
     async (AVPlaybackStatus) => {
       try {
         if (
-          AVPlaybackStatus?.positionMillis ===
+          AVPlaybackStatus?.positionMillis >=
           explore?.POSITION_TIME_MAP?.[defaultTime][1]
         ) {
           await videoRef.current.pauseAsync();
         }
       } catch {}
     },
-    [defaultTime, explore?.POSITION_TIME_MAP]
+    [defaultTime, explore]
   );
 
   return (

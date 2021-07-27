@@ -269,6 +269,18 @@ export const HomeScreenData = [
         ],
       },
     },
+    explore: {
+      video:
+        "https://www.kia.com/content/dam/kia2/in/en/images/our-vehicles/seltos/showroom/video/SELTOS-USP-Full-Video-d-01.mp4",
+      POSITION_TIME_MAP: {
+        0: [0, 1150],
+        1: [1150, 2100],
+        2: [2100, 3200],
+        3: [3200, 4000],
+        4: [4000, 5050],
+        5: [5050, 6016],
+      },
+    },
   },
   {
     name: "Sonet",
@@ -484,18 +496,6 @@ export const HomeScreenData = [
             ),
           },
         ],
-      },
-    },
-    explore: {
-      video:
-        "https://www.kia.com/content/dam/kia2/in/en/images/our-vehicles/seltos/showroom/video/SELTOS-USP-Full-Video-d-01.mp4",
-      POSITION_TIME_MAP: {
-        0: [0, 300],
-        1: [300, 1900],
-        2: [1900, 3200],
-        3: [3200, 4100],
-        4: [4100, 5000],
-        5: [5000, 6016],
       },
     },
   },
