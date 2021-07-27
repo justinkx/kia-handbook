@@ -24,7 +24,10 @@ const DetailsScreen = ({ navigation, route }) => {
       <StatusBar style="light" animated />
       <Animated.ScrollView
         onScroll={onScroll}
-        contentContainerStyle={{ paddingTop: containerPaddingTop }}
+        contentContainerStyle={{
+          paddingTop: containerPaddingTop,
+          paddingBottom: insets.bottom,
+        }}
         scrollIndicatorInsets={{ top: insets.top }}
       >
         <Design details={details} />
