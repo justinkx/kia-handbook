@@ -129,7 +129,9 @@ const HomeScreen = ({ navigation }) => {
       <View style={[GlobalStyles.center, styles.indicatorContainer]}>
         {imageIndicator()}
       </View>
-      <Text style={[styles.name, GlobalStyles.pagePadding]}>Discover</Text>
+      <View style={styles.discoverView}>
+        <Text style={[styles.name, GlobalStyles.pagePadding]}>Discover</Text>
+      </View>
       <AnimatedFlatList
         horizontal
         data={kiaModalData}
@@ -174,5 +176,10 @@ const styles = StyleSheet.create({
   },
   spacerStyle: {
     width: SPACER_ITEM_SIZE,
+  },
+  discoverView: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
   },
 });
