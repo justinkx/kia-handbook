@@ -1,12 +1,5 @@
-import React, { memo, useMemo, useCallback, useState, useRef } from "react";
-import {
-  StyleSheet,
-  Text,
-  Image,
-  View,
-  Dimensions,
-  FlatList,
-} from "react-native";
+import React, { memo, useMemo, useCallback, useState } from "react";
+import { StyleSheet, Text, Image, View, FlatList } from "react-native";
 import _isObject from "lodash/isObject";
 import _throttle from "lodash/throttle";
 import _size from "lodash/size";
@@ -17,14 +10,14 @@ import Animated, {
 } from "react-native-reanimated";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-import GlobalStyles from "../Styles/GlobalStyle";
+import GlobalStyles, { width, height } from "../Styles/GlobalStyle";
 import { HomeScreenData } from "../Utils/HomeScreen.data";
 import CarouselImage from "../Components/CarouselImage";
 import ModelsCard from "../Components/ModelsCard";
 import CarouselPagination from "../Components/CarouselPagination";
+import DiscoverPagination from "../Components/DiscoverPagination";
 
 const KIA = require("../../assets/kia.png");
-const { width, height } = Dimensions.get("window");
 const MODAL_ITEM_WIDTH = width * 0.7;
 const IMAGE_VIEW_WIDTH = width - 30;
 const SPACER_ITEM_SIZE = (width - MODAL_ITEM_WIDTH) / 2;
@@ -118,29 +111,34 @@ const HomeScreen = ({ navigation }) => {
         data={HomeScreenData[selectedIndex].images}
         renderItem={renderImages}
         horizontal
-        scrollEventThrottle={32}
-        pagingEnabled
+        scrollEventThrottle={16}
         showsHorizontalScrollIndicator={false}
         keyExtractor={keyExtractor}
         style={styles.carouselFlatlist}
         onScroll={scrollHandler}
         decelerationRate={0}
         bounce={false}
+        extraData={[selectedIndex]}
+        snapToInterval={width}
       />
       <View style={[GlobalStyles.center, styles.indicatorContainer]}>
         {imageIndicator()}
       </View>
-      <Text style={[styles.name, GlobalStyles.pagePadding]}>Discover</Text>
+      <View style={styles.discoverView}>
+        <Text style={[styles.name, GlobalStyles.pagePadding]}>Discover</Text>
+        <DiscoverPagination
+          totalSize={DATA_SIZE}
+          currentIndex={selectedIndex + 1}
+        />
+      </View>
       <AnimatedFlatList
         horizontal
         data={kiaModalData}
         renderItem={renderModalCard}
         keyExtractor={keyExtractor}
         snapToInterval={MODAL_ITEM_WIDTH}
-        pagingEnabled
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={styles.modelCardList}
-        pagingEnabled
         decelerationRate={0}
         bounce={false}
         onScroll={onScroll}
@@ -170,10 +168,15 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   carouselFlatlist: {
-    height: height / 3.4,
+    height: height / 3.5,
     flexGrow: 0,
   },
   spacerStyle: {
     width: SPACER_ITEM_SIZE,
+  },
+  discoverView: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
   },
 });

@@ -15,11 +15,14 @@ const Design = ({ details }) => {
     setColor(selected);
   }, []);
 
-  const toggleSwitch = useCallback((value) => {
-    const design = value ? DESIGNS[0] : DESIGNS[1];
-    setDesign(design);
-    setColor(details?.design?.[design]?.colors[0]);
-  }, []);
+  const toggleSwitch = useCallback(
+    (value) => {
+      const design = value ? DESIGNS[0] : DESIGNS[1];
+      setDesign(design);
+      setColor(details?.design?.[design]?.colors[0]);
+    },
+    [details?.design]
+  );
 
   return (
     <View style={styles.container}>

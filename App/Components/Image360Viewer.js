@@ -27,6 +27,11 @@ export default class Image360Viewer extends PureComponent {
     };
   }
 
+  async componentDidMount() {
+    const { srcSet } = this.props;
+    await Promise.all(srcSet.map(async ({ uri }) => await Image.prefetch(uri)));
+  }
+
   createPanResponder = () => {
     this.panResponder = PanResponder.create({
       onMoveShouldSetPanResponder: (evt, gestureState) => true,
@@ -74,7 +79,6 @@ export default class Image360Viewer extends PureComponent {
 
     const mRotation = rotation - Math.floor(rotation / 360) * 360;
     const index = Math.floor(mRotation / rotatePeriod);
-
     return srcSet[index];
   };
 

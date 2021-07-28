@@ -10,6 +10,7 @@ import { StatusBar } from "expo-status-bar";
 import HeaderComponent from "../Components/HeaderComponent";
 import BackButton from "../Components/BackButton";
 import Design from "../Components/Design";
+import Explore from "../Components/Explore";
 
 const DetailsScreen = ({ navigation, route }) => {
   const { details } = useMemo(() => route.params, [route]);
@@ -23,10 +24,14 @@ const DetailsScreen = ({ navigation, route }) => {
       <StatusBar style="light" animated />
       <Animated.ScrollView
         onScroll={onScroll}
-        contentContainerStyle={{ paddingTop: containerPaddingTop }}
+        contentContainerStyle={{
+          paddingTop: containerPaddingTop,
+          paddingBottom: insets.bottom,
+        }}
         scrollIndicatorInsets={{ top: insets.top }}
       >
         <Design details={details} />
+        <Explore explore={details?.explore} />
       </Animated.ScrollView>
       <CollapsibleSubHeaderAnimator translateY={translateY}>
         <HeaderComponent details={details} />

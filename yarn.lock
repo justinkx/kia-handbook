@@ -1146,6 +1146,13 @@
   dependencies:
     "@types/hammerjs" "^2.0.36"
 
+"@elselabs/react-native-snap-slider@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@elselabs/react-native-snap-slider/-/react-native-snap-slider-2.0.0.tgz#586dc351b6c170f322a8a9d387b8151d15160360"
+  integrity sha512-aBzHDVZC56vdV1RgCadEDXq1f2E2s7Zz0tE55Mv6sWeCXKJqL8oa7nm21jT0PhBCGPj5kE2Zq8p/2/RY7WKGQg==
+  dependencies:
+    "@react-native-community/slider" "^4.0.0-rc.3"
+
 "@eslint/eslintrc@^0.4.3":
   version "0.4.3"
   resolved "https://registry.yarnpkg.com/@eslint/eslintrc/-/eslintrc-0.4.3.tgz#9e42981ef035beb3dd49add17acb96e8ff6f394c"
@@ -1555,6 +1562,13 @@
   version "0.1.10"
   resolved "https://registry.yarnpkg.com/@react-native-community/masked-view/-/masked-view-0.1.10.tgz#5dda643e19e587793bc2034dd9bf7398ad43d401"
   integrity sha512-rk4sWFsmtOw8oyx8SD3KSvawwaK7gRBSEIy2TAwURyGt+3TizssXP1r8nx3zY+R7v2vYYHXZ+k2/GULAT/bcaQ==
+
+"@react-native-community/slider@^4.0.0-rc.3":
+  version "4.0.0-rc.3"
+  resolved "https://registry.yarnpkg.com/@react-native-community/slider/-/slider-4.0.0-rc.3.tgz#4e2b09e4e31c75e3fd61ad6068fe438835cfb30c"
+  integrity sha512-OFW4NSk86hhkAEqsC7n1qrBCxl83+Im73F/E5oxrj/fsGW+pUR92yWMCEigEaAdTzsw22r1/snBO74FtAQbl6g==
+  dependencies:
+    flow-bin "0.113.0"
 
 "@react-navigation/core@^5.15.3":
   version "5.15.3"
@@ -2941,6 +2955,11 @@ expo-av@~9.2.3:
     "@expo/config-plugins" "^3.0.0"
     expo-modules-core "~0.2.0"
 
+expo-blur@~9.0.3:
+  version "9.0.3"
+  resolved "https://registry.yarnpkg.com/expo-blur/-/expo-blur-9.0.3.tgz#5095b5bd04d000f73b351d0e4736767b86b49bbd"
+  integrity sha512-7jMqzo53eg5t9Uc1Tg+yGu9lKL9the4CWAQO0kC6YMhrsDiB13mwOUesC+IScHDTSUKNMGcHI8kN+OmvEWfPig==
+
 expo-constants@~11.0.1:
   version "11.0.1"
   resolved "https://registry.yarnpkg.com/expo-constants/-/expo-constants-11.0.1.tgz#8a33d9702d03289ab68d6de2bbeb2bbc9654734c"
@@ -3301,6 +3320,11 @@ flatted@^3.1.0:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/flatted/-/flatted-3.2.1.tgz#bbef080d95fca6709362c73044a1634f7c6e7d05"
   integrity sha512-OMQjaErSFHmHqZe+PSidH5n8j3O0F2DdnVh8JB4j4eUQ2k6KvB0qGfrKIhapvez5JerBbmWkaLYUYWISaESoXg==
+
+flow-bin@0.113.0:
+  version "0.113.0"
+  resolved "https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.113.0.tgz#6457d250dbc6f71ca51e75f00a96d23cde5d987a"
+  integrity sha512-76uE2LGNe50wm+Jup8Np4FBcMbyy5V2iE+K25PPIYLaEMGHrL1jnQfP9L0hTzA5oh2ZJlexRLMlaPqIYIKH9nw==
 
 fontfaceobserver@^2.1.0:
   version "2.1.0"
