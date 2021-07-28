@@ -9,9 +9,16 @@ import React, {
 import { StyleSheet, Text, View } from "react-native";
 import { Video } from "expo-av";
 import SnapSlider from "@elselabs/react-native-snap-slider";
+import { BlurView } from "expo-blur";
+import Animated, {
+  useSharedValue,
+  withTiming,
+  useAnimatedStyle,
+} from "react-native-reanimated";
 
-import { height } from "../Styles/GlobalStyle";
+import { height, width } from "../Styles/GlobalStyle";
 
+const AnimatedBlurView = Animated.createAnimatedComponent(BlurView);
 const EXPLORE_HEIGHT = height / 3.6;
 
 const sliderOptions = [
@@ -25,6 +32,8 @@ const sliderOptions = [
 const Explore = ({ explore }) => {
   const videoRef = useRef(null);
   const sliderRef = useRef(null);
+  const animatedHeight = useSharedValue(0);
+
   const [defaultTime, setTime] = useState(sliderOptions[0].value);
 
   const exploreDetails = useMemo(
@@ -47,6 +56,18 @@ const Explore = ({ explore }) => {
     }
     init();
   }, [explore]);
+
+  useEffect(() => {
+    animatedHeight.value = withTiming(EXPLORE_HEIGHT, {
+      duration: 500,
+    });
+
+    setTimeout(() => {
+      animatedHeight.value = withTiming(0, {
+        duration: 500,
+      });
+    }, 1500);
+  }, [defaultTime]);
 
   const onSlidingComplete = useCallback(async () => {
     const selectedTime = sliderRef?.current.state.item;
@@ -74,24 +95,36 @@ const Explore = ({ explore }) => {
     [defaultTime, explore]
   );
 
+  const blurStyle = useAnimatedStyle(() => ({
+    height: animatedHeight.value,
+  }));
   return (
     <View style={styles.backgroundContainer}>
       <View style={styles.detailsView}>
         <Text style={styles.explore}>EXPLORE</Text>
         <Text>{exploreDetails?.title}</Text>
       </View>
-      <Video
-        ref={videoRef}
-        style={styles.backgroundVideo}
-        muted={true}
-        resizeMode={"cover"}
-        rate={1.0}
-        ignoreSilentSwitch={"obey"}
-        useNativeControls={false}
-        onPlaybackStatusUpdate={handlePlaybackStatusUpdate}
-        height={EXPLORE_HEIGHT}
-      />
-      <View style={{ height: 50, paddingHorizontal: 15 }}>
+      <View style={styles.videoView}>
+        <Video
+          ref={videoRef}
+          style={styles.backgroundVideo}
+          muted={true}
+          resizeMode={"cover"}
+          rate={1.0}
+          ignoreSilentSwitch={"obey"}
+          useNativeControls={false}
+          onPlaybackStatusUpdate={handlePlaybackStatusUpdate}
+          height={EXPLORE_HEIGHT}
+        />
+        <AnimatedBlurView
+          tint={"dark"}
+          intensity={100}
+          style={[StyleSheet.absoluteFill, styles.blurContent, blurStyle]}
+        >
+          <Text style={styles.description}>{exploreDetails?.description}</Text>
+        </AnimatedBlurView>
+      </View>
+      <View style={styles.slider}>
         <SnapSlider
           ref={sliderRef}
           items={sliderOptions}
@@ -109,9 +142,8 @@ export default memo(Explore);
 
 const styles = StyleSheet.create({
   backgroundContainer: {
-    position: "relative",
     height: EXPLORE_HEIGHT + 100,
-    marginTop: 20,
+    marginVertical: 30,
   },
   backgroundVideo: {
     height: EXPLORE_HEIGHT,
@@ -128,5 +160,29 @@ const styles = StyleSheet.create({
   itemStyle: {
     fontSize: 12,
     fontWeight: "700",
+  },
+  videoView: {
+    position: "relative",
+  },
+  blurContent: {
+    width: width,
+    height: EXPLORE_HEIGHT,
+    top: 0,
+    left: 0,
+    bottom: 0,
+    right: 0,
+    justifyContent: "center",
+    alignItems: "center",
+    paddingHorizontal: 20,
+  },
+  description: {
+    textAlign: "center",
+    color: "white",
+    textAlign: "center",
+  },
+  slider: {
+    minHeight: 50,
+    paddingHorizontal: 15,
+    justifyContent: "flex-end",
   },
 });
