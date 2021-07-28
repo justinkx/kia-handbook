@@ -14,6 +14,7 @@ import Animated, {
   useSharedValue,
   withTiming,
   useAnimatedStyle,
+  withDelay,
 } from "react-native-reanimated";
 
 import { height, width } from "../Styles/GlobalStyle";
@@ -58,15 +59,18 @@ const Explore = ({ explore }) => {
   }, [explore]);
 
   useEffect(() => {
-    animatedHeight.value = withTiming(EXPLORE_HEIGHT, {
-      duration: 500,
-    });
+    animatedHeight.value = withDelay(
+      1000,
+      withTiming(EXPLORE_HEIGHT, {
+        duration: 500,
+      })
+    );
 
     setTimeout(() => {
       animatedHeight.value = withTiming(0, {
         duration: 500,
       });
-    }, 1500);
+    }, 2500);
   }, [defaultTime]);
 
   const onSlidingComplete = useCallback(async () => {
@@ -98,11 +102,12 @@ const Explore = ({ explore }) => {
   const blurStyle = useAnimatedStyle(() => ({
     height: animatedHeight.value,
   }));
+
   return (
     <View style={styles.backgroundContainer}>
       <View style={styles.detailsView}>
         <Text style={styles.explore}>EXPLORE</Text>
-        <Text>{exploreDetails?.title}</Text>
+        <Text style={styles.title}>{exploreDetails?.title}</Text>
       </View>
       <View style={styles.videoView}>
         <Video
@@ -118,7 +123,8 @@ const Explore = ({ explore }) => {
         />
         <AnimatedBlurView
           tint={"dark"}
-          intensity={100}
+          blurTint={"default"}
+          intensity={30}
           style={[StyleSheet.absoluteFill, styles.blurContent, blurStyle]}
         >
           <Text style={styles.description}>{exploreDetails?.description}</Text>
@@ -153,7 +159,7 @@ const styles = StyleSheet.create({
     paddingBottom: 15,
   },
   explore: {
-    fontSize: 13,
+    fontSize: 15,
     fontWeight: "700",
     color: "#bb162b",
   },
@@ -174,6 +180,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     paddingHorizontal: 20,
+    overflow: "hidden",
   },
   description: {
     textAlign: "center",
@@ -184,5 +191,9 @@ const styles = StyleSheet.create({
     minHeight: 50,
     paddingHorizontal: 15,
     justifyContent: "flex-end",
+  },
+  title: {
+    fontSize: 13,
+    fontWeight: "700",
   },
 });
