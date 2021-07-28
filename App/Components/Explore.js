@@ -1,9 +1,16 @@
-import React, { memo, useRef, useEffect, useState, useCallback } from "react";
+import React, {
+  memo,
+  useRef,
+  useEffect,
+  useState,
+  useCallback,
+  useMemo,
+} from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { Video } from "expo-av";
-import SnapSlider from "react-native-snap-slider";
+import SnapSlider from "@elselabs/react-native-snap-slider";
 
-import { width, height } from "../Styles/GlobalStyle";
+import { height } from "../Styles/GlobalStyle";
 
 const EXPLORE_HEIGHT = height / 3.6;
 
@@ -69,6 +76,10 @@ const Explore = ({ explore }) => {
 
   return (
     <View style={styles.backgroundContainer}>
+      <View style={styles.detailsView}>
+        <Text style={styles.explore}>EXPLORE</Text>
+        <Text>{exploreDetails?.title}</Text>
+      </View>
       <Video
         ref={videoRef}
         style={styles.backgroundVideo}
@@ -87,6 +98,7 @@ const Explore = ({ explore }) => {
           labelPosition="bottom"
           defaultItem={defaultTime}
           onSlidingComplete={onSlidingComplete}
+          itemStyle={styles.itemStyle}
         />
       </View>
     </View>
@@ -98,9 +110,23 @@ export default memo(Explore);
 const styles = StyleSheet.create({
   backgroundContainer: {
     position: "relative",
-    height: EXPLORE_HEIGHT + 50,
+    height: EXPLORE_HEIGHT + 100,
+    marginTop: 20,
   },
   backgroundVideo: {
     height: EXPLORE_HEIGHT,
+  },
+  detailsView: {
+    paddingHorizontal: 15,
+    paddingBottom: 15,
+  },
+  explore: {
+    fontSize: 13,
+    fontWeight: "700",
+    color: "#bb162b",
+  },
+  itemStyle: {
+    fontSize: 12,
+    fontWeight: "700",
   },
 });
