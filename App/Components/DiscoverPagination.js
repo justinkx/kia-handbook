@@ -1,15 +1,42 @@
-import React, { memo } from "react";
+import React, { memo, useEffect } from "react";
 import { StyleSheet, Text, View } from "react-native";
+import Animated, {
+  useSharedValue,
+  useAnimatedStyle,
+  withTiming,
+} from "react-native-reanimated";
 
-const PROGRESS_WIDTH = 200;
+import { width } from "../Styles/GlobalStyle";
+import colors from "../Styles/Colors";
+
+const PROGRESS_WIDTH = width / 3.2;
 
 const DiscoverPagination = ({ totalSize, currentIndex }) => {
+  const animatedWidth = useSharedValue(
+    (PROGRESS_WIDTH * currentIndex) / totalSize
+  );
+
+  useEffect(() => {
+    animatedWidth.value = withTiming(
+      (PROGRESS_WIDTH * currentIndex) / totalSize,
+      {
+        duration: 500,
+      }
+    );
+  }, [totalSize, currentIndex]);
+
+  const progressStyle = useAnimatedStyle(() => ({
+    width: animatedWidth.value,
+  }));
+
   return (
-    <View>
+    <View style={styles.container}>
       <View style={styles.progressView}>
-        <View style={styles.progress} />
+        <Animated.View style={[styles.progress, progressStyle]} />
       </View>
-      <Text></Text>
+      <Text style={styles.pagination}>
+        {currentIndex}/{totalSize}
+      </Text>
     </View>
   );
 };
@@ -21,6 +48,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "flex-start",
     alignItems: "center",
+    paddingRight: 15,
   },
   progressView: {
     width: PROGRESS_WIDTH,
@@ -31,11 +59,15 @@ const styles = StyleSheet.create({
     borderColor: "gray",
   },
   progress: {
-    width: PROGRESS_WIDTH / 2,
     height: 8,
     borderRadius: 4,
     position: "absolute",
     left: 0,
-    backgroundColor: "red",
+    backgroundColor: colors.intense_red,
+  },
+  pagination: {
+    fontSize: 13,
+    fontWeight: "bold",
+    paddingLeft: 5,
   },
 });

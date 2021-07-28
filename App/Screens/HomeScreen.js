@@ -1,12 +1,5 @@
-import React, { memo, useMemo, useCallback, useState, useRef } from "react";
-import {
-  StyleSheet,
-  Text,
-  Image,
-  View,
-  Dimensions,
-  FlatList,
-} from "react-native";
+import React, { memo, useMemo, useCallback, useState } from "react";
+import { StyleSheet, Text, Image, View, FlatList } from "react-native";
 import _isObject from "lodash/isObject";
 import _throttle from "lodash/throttle";
 import _size from "lodash/size";
@@ -22,6 +15,7 @@ import { HomeScreenData } from "../Utils/HomeScreen.data";
 import CarouselImage from "../Components/CarouselImage";
 import ModelsCard from "../Components/ModelsCard";
 import CarouselPagination from "../Components/CarouselPagination";
+import DiscoverPagination from "../Components/DiscoverPagination";
 
 const KIA = require("../../assets/kia.png");
 const MODAL_ITEM_WIDTH = width * 0.7;
@@ -131,6 +125,10 @@ const HomeScreen = ({ navigation }) => {
       </View>
       <View style={styles.discoverView}>
         <Text style={[styles.name, GlobalStyles.pagePadding]}>Discover</Text>
+        <DiscoverPagination
+          totalSize={DATA_SIZE}
+          currentIndex={selectedIndex + 1}
+        />
       </View>
       <AnimatedFlatList
         horizontal
