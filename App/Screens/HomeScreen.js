@@ -111,14 +111,15 @@ const HomeScreen = ({ navigation }) => {
         data={HomeScreenData[selectedIndex].images}
         renderItem={renderImages}
         horizontal
-        scrollEventThrottle={32}
-        pagingEnabled
+        scrollEventThrottle={16}
         showsHorizontalScrollIndicator={false}
         keyExtractor={keyExtractor}
         style={styles.carouselFlatlist}
         onScroll={scrollHandler}
         decelerationRate={0}
         bounce={false}
+        extraData={[selectedIndex]}
+        snapToInterval={width}
       />
       <View style={[GlobalStyles.center, styles.indicatorContainer]}>
         {imageIndicator()}
@@ -136,10 +137,8 @@ const HomeScreen = ({ navigation }) => {
         renderItem={renderModalCard}
         keyExtractor={keyExtractor}
         snapToInterval={MODAL_ITEM_WIDTH}
-        pagingEnabled
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={styles.modelCardList}
-        pagingEnabled
         decelerationRate={0}
         bounce={false}
         onScroll={onScroll}
