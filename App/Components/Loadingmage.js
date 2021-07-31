@@ -39,7 +39,7 @@ const LoadingImage = ({
             <>
               <Image
                 source={placeholder}
-                style={imageStyle}
+                style={[{ width: "100%" }, imageStyle]}
                 resizeMode={resizeMode}
                 resizeMethod={resizeMethod}
                 progressiveRenderingEnabled

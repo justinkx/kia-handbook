@@ -2,7 +2,7 @@ import React, { memo } from "react";
 import { StyleSheet, Text, TouchableOpacity } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 
-const BackButton = ({ navigation, top = 50 }) => {
+const BackButton = ({ navigation, top = 50, color = "white" }) => {
   return (
     <TouchableOpacity
       onPress={() => navigation.pop()}
@@ -13,8 +13,8 @@ const BackButton = ({ navigation, top = 50 }) => {
         },
       ]}
     >
-      <Ionicons name="chevron-back" size={24} style={styles.icon} />
-      <Text style={styles.back}>Back</Text>
+      <Ionicons name="chevron-back" size={24} style={{ color }} />
+      <Text style={[styles.back, { color }]}>Back</Text>
     </TouchableOpacity>
   );
 };
@@ -30,12 +30,9 @@ const styles = StyleSheet.create({
     justifyContent: "flex-start",
     alignItems: "center",
   },
-  icon: {
-    color: "white",
-  },
+
   back: {
-    color: "white",
     fontSize: 15,
-    fontWeight: "500",
+    fontWeight: "700",
   },
 });

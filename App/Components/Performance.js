@@ -1,5 +1,5 @@
 import React, { memo } from "react";
-import { StyleSheet, Text, View, Image } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 
 import GlobalStyle from "../Styles/GlobalStyle";
 import { height, width } from "../Styles/GlobalStyle";

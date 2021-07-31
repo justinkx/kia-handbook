@@ -41,6 +41,12 @@ export default GlobalStyles = StyleSheet.create({
     fontSize: 13,
     fontWeight: "700",
   },
+  link: {
+    fontSize: 13,
+    fontWeight: "700",
+    marginVertical: 5,
+    color: "#03A9F4",
+  },
 });
 
 export { width, height };

@@ -1,4 +1,4 @@
-import React, { useMemo, memo, useState, useCallback } from "react";
+import React, { useMemo, memo, useCallback, useState } from "react";
 import { StyleSheet, Animated, View } from "react-native";
 import {
   useCollapsibleSubHeader,
@@ -12,17 +12,34 @@ import BackButton from "../Components/BackButton";
 import Design from "../Components/Design";
 import Explore from "../Components/Explore";
 import Performance from "../Components/Performance";
+import Uvo from "../Components/Uvo";
+
+const HEADER_HEIGHT = 250;
 
 const DetailsScreen = ({ navigation, route }) => {
+  const [headerStyle, setStyle] = useState({ style: "light", color: "white" });
+
   const { details } = useMemo(() => route.params, [route]);
 
-  const { onScroll, containerPaddingTop, translateY } =
+  const { containerPaddingTop, translateY, onScrollWithListener } =
     useCollapsibleSubHeader();
   const insets = useSafeAreaInsets();
 
+  const listener = useCallback(
+    ({ nativeEvent }) => {
+      if (nativeEvent?.contentOffset?.y > HEADER_HEIGHT + insets.top) {
+        setStyle({ style: "dark", color: "black" });
+      } else {
+        setStyle({ style: "light", color: "white" });
+      }
+    },
+    [insets]
+  );
+
+  const onScroll = onScrollWithListener(listener);
   return (
     <View>
-      <StatusBar style="light" animated />
+      <StatusBar style={headerStyle.style} animated />
       <Animated.ScrollView
         onScroll={onScroll}
         contentContainerStyle={{
@@ -34,11 +51,16 @@ const DetailsScreen = ({ navigation, route }) => {
         <Design details={details} />
         <Explore explore={details?.explore} />
         <Performance performance={details?.performance} />
+        <Uvo uvo={details?.uvo} />
       </Animated.ScrollView>
       <CollapsibleSubHeaderAnimator translateY={translateY}>
         <HeaderComponent details={details} />
       </CollapsibleSubHeaderAnimator>
-      <BackButton navigation={navigation} top={insets.top} />
+      <BackButton
+        color={headerStyle.color}
+        navigation={navigation}
+        top={insets.top}
+      />
     </View>
   );
 };
