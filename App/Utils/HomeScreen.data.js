@@ -313,6 +313,33 @@ export const HomeScreenData = [
         },
       },
     },
+    performance: {
+      title: "Trend Leading Innovator",
+      image:
+        "https://www.kia.com/content/dam/kia2/in/en/images/our-vehicles/seltos/showroom/compare-seltos-01.png",
+      desc: [
+        {
+          head: 'Smart 20.32cm (8.0") Heads-up Display',
+          para: `Smart 20.32cm (8.0") HUD displays driving information to assist safe driving by minimizing movement of driver's line of sight`,
+        },
+        {
+          head: "Smartstream BS6 Compliant Engine",
+          para: "Kia Seltos will come in petrol, turbo-petrol and diesel versions and drivers would also have the option to choose from 'Normal', 'Eco' and 'Sport' mode",
+        },
+        {
+          head: `26.03cm (10.25") HD touchscreen with UVO`,
+          para: `State of the art 26.03cm (10.25") HD touchscreen with Navigation and UVO connected car technology improves the convenience and safety in the car at the same time adding to the interior style and elegance.`,
+        },
+      ],
+    },
+    uvo: {
+      title: "Stay Connected",
+      desc: "You can’t put a price on peace of mind. UVO lets you drive with confidence, knowing someone can be there to help no matter what happens out on the road.",
+      learnMore: "https://www.kia.com/in/uvo.html",
+      image:
+        "https://www.kia.com/content/dam/kia2/in/en/images/our-vehicles/seltos/showroom/Seltos-UVO-01.jpg",
+    },
+    segments: ["SPACE", "TECHNOLOGY", "SAFETY", "ENTERTAINMENT"],
   },
   {
     name: "Sonet",
@@ -574,6 +601,33 @@ export const HomeScreenData = [
         },
       },
     },
+    performance: {
+      title: "Thrilling Performance",
+      image:
+        "https://www.kia.com/content/dam/kia2/in/en/images/our-vehicles/sonet/showroom/Thrilling-performance-d-01.png",
+      desc: [
+        {
+          head: "Refined 1.5 CRDi Diesel Engines",
+          para: "Available in 6 Speed MT (100 PS Power) and First-in Segment (115 PS Power) 6 Speed Advance AT. Power is what drives the Kia Sonet to new adventures.",
+        },
+        {
+          head: "Powerful G1.0 T-GDi Petrol Engine",
+          para: "Get ready to rule the urban jungle. The power of 120 PS combined with the option of 6iMT & 7DCT Smartstream engines make driving comfortable.",
+        },
+        {
+          head: "Advanced Smartstream G1.2 Petrol Engine",
+          para: "Kia Sonet makes the thrill seeker in you come alive once you take the steering wheel with 5 Speed MT (83PS Power).",
+        },
+      ],
+    },
+    uvo: {
+      title: "Wild And Connected",
+      desc: "The Kia Sonet isn’t just all muscle. Powered by the latest evolution of UVO, it offers you 58 smart ways of staying connected, making it the brainiest of all SUVs. UVO’s advanced technology includes AI Voice Command, Voice assisted Sunroof control, OTA map updates, making your driving experience safe, convenient, and enjoyable.",
+      learnMore: "https://www.kia.com/in/uvo.html",
+      image:
+        "https://www.kia.com/content/dam/kia2/in/en/images/our-vehicles/sonet/showroom/UVO_Sonet-02.jpg",
+    },
+    segments: ["TECHNOLOGY", "SAFETY", "ENTERTAINMENT"],
   },
   {
     name: "Carnival",
@@ -673,5 +727,28 @@ export const HomeScreenData = [
         },
       },
     },
+    performance: {
+      title: "The Ultimate Driving Luxury",
+      image:
+        "https://www.kia.com/content/dam/kia2/in/en/our-vehicles/showroom/carnival-product/Desktop/Engine.jpg",
+      desc: [
+        {
+          head: "2.2L Diesel Engine with 200 PS and 440 Nm Torque",
+          para: "The lightweight and powerful engine churns out 200 PS maximum power and 440Nm maximum torque in addition to being BS6 compliant.",
+        },
+        {
+          head: "8-Speed Sportsmatic Transmission",
+          para: "Superior driving, dynamic performance and advanced precision come together perfectly with the 8-Speed Sportsmatic Transmission of the Kia Carnival.",
+        },
+      ],
+    },
+    uvo: {
+      title: "UVO = Your Voice",
+      desc: "With 50 unique features, UVO is the latest evolution in connected car technology and infotainment. It lets you seamlessly connect your smartphone or smartwatch with the kia Carnival.",
+      learnMore: "https://www.kia.com/in/uvo.html",
+      image:
+        "https://www.kia.com/content/dam/kia2/in/en/our-vehicles/showroom/carnival-product/Desktop/UVO.png",
+    },
+    segments: ["SPACE", "EXTRAVAGANCE", "SAFETY", "ENTERTAINMENT"],
   },
 ];

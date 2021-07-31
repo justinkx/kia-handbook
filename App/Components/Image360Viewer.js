@@ -7,6 +7,8 @@ import {
   StyleSheet,
 } from "react-native";
 
+import LoadingImage from "./Loadingmage";
+
 const { width } = Dimensions.get("window");
 
 export default class Image360Viewer extends PureComponent {
@@ -79,16 +81,16 @@ export default class Image360Viewer extends PureComponent {
 
     const mRotation = rotation - Math.floor(rotation / 360) * 360;
     const index = Math.floor(mRotation / rotatePeriod);
-    return srcSet[index];
+    return srcSet[index]?.uri;
   };
 
   render() {
     const { width, height } = this.props;
     return (
       <View style={styles.container} {...this.panResponder.panHandlers}>
-        <Image
+        <LoadingImage
           source={this.getImage()}
-          style={[{ width, height }]}
+          imageStyle={[{ width, height }]}
           resizeMode="contain"
         />
       </View>

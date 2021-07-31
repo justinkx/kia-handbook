@@ -28,6 +28,25 @@ export default GlobalStyles = StyleSheet.create({
     justifyContent: "flex-start",
     alignItems: "center",
   },
+  detailsView: {
+    paddingHorizontal: 15,
+    paddingBottom: 15,
+  },
+  title: {
+    fontSize: 15,
+    fontWeight: "700",
+    color: COLORS.title,
+  },
+  caption: {
+    fontSize: 13,
+    fontWeight: "700",
+  },
+  link: {
+    fontSize: 13,
+    fontWeight: "700",
+    marginVertical: 5,
+    color: "#03A9F4",
+  },
 });
 
 export { width, height };
