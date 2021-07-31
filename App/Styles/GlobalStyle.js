@@ -37,6 +37,10 @@ export default GlobalStyles = StyleSheet.create({
     fontWeight: "700",
     color: COLORS.title,
   },
+  caption: {
+    fontSize: 13,
+    fontWeight: "700",
+  },
 });
 
 export { width, height };
