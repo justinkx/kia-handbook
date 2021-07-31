@@ -70,7 +70,7 @@ const ModelsCard = ({ item, index, scrollX, navigation }) => {
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity activeOpacity={0.8} onPress={goToDetails}>
+      <TouchableOpacity activeOpacity={0.95} onPress={goToDetails}>
         <Animated.View style={[styles.animatedView, animatedViewStyle]}>
           <View style={[styles.maskedLeftView]} />
           <View style={[styles.maskedRightView]} />
