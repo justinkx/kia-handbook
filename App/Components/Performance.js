@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, Image } from "react-native";
 
 import GlobalStyle from "../Styles/GlobalStyle";
 import { height, width } from "../Styles/GlobalStyle";
+import LoadingImage from "./Loadingmage";
 
 const Performance = ({
   performance: { title = "", image = "", desc = [] },
@@ -13,7 +14,7 @@ const Performance = ({
         <Text style={GlobalStyle.title}>PERFORMANCE</Text>
         <Text style={GlobalStyle.caption}>{title}</Text>
       </View>
-      <Image source={{ uri: image }} style={styles.image} />
+      <LoadingImage source={image} imageStyle={styles.image} />
       <View style={GlobalStyle.detailsView}>
         {desc.map((item, index) => (
           <View key={index} style={styles.item}>
