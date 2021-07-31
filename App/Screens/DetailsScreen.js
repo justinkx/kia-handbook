@@ -47,6 +47,7 @@ const DetailsScreen = ({ navigation, route }) => {
           paddingBottom: insets.bottom,
         }}
         scrollIndicatorInsets={{ top: insets.top }}
+        removeClippedSubviews
       >
         <Design details={details} />
         <Explore explore={details?.explore} />

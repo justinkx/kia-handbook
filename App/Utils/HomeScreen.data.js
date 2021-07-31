@@ -339,6 +339,7 @@ export const HomeScreenData = [
       image:
         "https://www.kia.com/content/dam/kia2/in/en/images/our-vehicles/seltos/showroom/Seltos-UVO-01.jpg",
     },
+    segments: ["SPACE", "TECHNOLOGY", "ENTERTAINMENT", "SAFETY"],
   },
   {
     name: "Sonet",
@@ -626,6 +627,7 @@ export const HomeScreenData = [
       image:
         "https://www.kia.com/content/dam/kia2/in/en/images/our-vehicles/sonet/showroom/UVO_Sonet-02.jpg",
     },
+    segments: ["TECHNOLOGY", "ENTERTAINMENT", "SAFETY"],
   },
   {
     name: "Carnival",
@@ -747,5 +749,6 @@ export const HomeScreenData = [
       image:
         "https://www.kia.com/content/dam/kia2/in/en/our-vehicles/showroom/carnival-product/Desktop/UVO.png",
     },
+    segments: ["SPACE", "EXTRAVAGANCE", "ENTERTAINMENT", "SAFETY"],
   },
 ];
