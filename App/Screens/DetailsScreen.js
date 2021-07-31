@@ -13,6 +13,7 @@ import Design from "../Components/Design";
 import Explore from "../Components/Explore";
 import Performance from "../Components/Performance";
 import Uvo from "../Components/Uvo";
+import DetailsSegments from "../Components/DetailsSegments";
 
 const HEADER_HEIGHT = 250;
 
@@ -53,6 +54,7 @@ const DetailsScreen = ({ navigation, route }) => {
         <Explore explore={details?.explore} />
         <Performance performance={details?.performance} />
         <Uvo uvo={details?.uvo} />
+        <DetailsSegments segments={details?.segments} />
       </Animated.ScrollView>
       <CollapsibleSubHeaderAnimator translateY={translateY}>
         <HeaderComponent details={details} />
