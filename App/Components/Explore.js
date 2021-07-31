@@ -18,6 +18,7 @@ import Animated, {
 } from "react-native-reanimated";
 
 import { height, width } from "../Styles/GlobalStyle";
+import GlobalStyle from "../Styles/GlobalStyle";
 
 const AnimatedBlurView = Animated.createAnimatedComponent(BlurView);
 const EXPLORE_HEIGHT = height / 3.6;
@@ -105,8 +106,8 @@ const Explore = ({ explore }) => {
 
   return (
     <View style={styles.backgroundContainer}>
-      <View style={styles.detailsView}>
-        <Text style={styles.explore}>EXPLORE</Text>
+      <View style={GlobalStyle.detailsView}>
+        <Text style={GlobalStyle.title}>EXPLORE</Text>
         <Text style={styles.title}>{exploreDetails?.title}</Text>
       </View>
       <View style={styles.videoView}>

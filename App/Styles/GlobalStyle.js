@@ -28,6 +28,15 @@ export default GlobalStyles = StyleSheet.create({
     justifyContent: "flex-start",
     alignItems: "center",
   },
+  detailsView: {
+    paddingHorizontal: 15,
+    paddingBottom: 15,
+  },
+  title: {
+    fontSize: 15,
+    fontWeight: "700",
+    color: COLORS.title,
+  },
 });
 
 export { width, height };

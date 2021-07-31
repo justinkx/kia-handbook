@@ -11,6 +11,7 @@ import HeaderComponent from "../Components/HeaderComponent";
 import BackButton from "../Components/BackButton";
 import Design from "../Components/Design";
 import Explore from "../Components/Explore";
+import Performance from "../Components/Performance";
 
 const DetailsScreen = ({ navigation, route }) => {
   const { details } = useMemo(() => route.params, [route]);
@@ -32,6 +33,7 @@ const DetailsScreen = ({ navigation, route }) => {
       >
         <Design details={details} />
         <Explore explore={details?.explore} />
+        <Performance performance={details?.performance} />
       </Animated.ScrollView>
       <CollapsibleSubHeaderAnimator translateY={translateY}>
         <HeaderComponent details={details} />
