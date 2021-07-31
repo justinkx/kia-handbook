@@ -332,6 +332,13 @@ export const HomeScreenData = [
         },
       ],
     },
+    uvo: {
+      title: "Stay Connected",
+      desc: "You can’t put a price on peace of mind. UVO lets you drive with confidence, knowing someone can be there to help no matter what happens out on the road.",
+      learnMore: "https://www.kia.com/in/uvo.html",
+      image:
+        "https://www.kia.com/content/dam/kia2/in/en/images/our-vehicles/seltos/showroom/Seltos-UVO-01.jpg",
+    },
   },
   {
     name: "Sonet",
@@ -612,6 +619,13 @@ export const HomeScreenData = [
         },
       ],
     },
+    uvo: {
+      title: "Wild And Connected",
+      desc: "The Kia Sonet isn’t just all muscle. Powered by the latest evolution of UVO, it offers you 58 smart ways of staying connected, making it the brainiest of all SUVs. UVO’s advanced technology includes AI Voice Command, Voice assisted Sunroof control, OTA map updates, making your driving experience safe, convenient, and enjoyable.",
+      learnMore: "https://www.kia.com/in/uvo.html",
+      image:
+        "https://www.kia.com/content/dam/kia2/in/en/images/our-vehicles/sonet/showroom/UVO_Sonet-02.jpg",
+    },
   },
   {
     name: "Carnival",
@@ -725,6 +739,13 @@ export const HomeScreenData = [
           para: "Superior driving, dynamic performance and advanced precision come together perfectly with the 8-Speed Sportsmatic Transmission of the Kia Carnival.",
         },
       ],
+    },
+    uvo: {
+      title: "UVO = Your Voice",
+      desc: "With 50 unique features, UVO is the latest evolution in connected car technology and infotainment. It lets you seamlessly connect your smartphone or smartwatch with the kia Carnival.",
+      learnMore: "https://www.kia.com/in/uvo.html",
+      image:
+        "https://www.kia.com/content/dam/kia2/in/en/our-vehicles/showroom/carnival-product/Desktop/UVO.png",
     },
   },
 ];
