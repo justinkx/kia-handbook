@@ -62,12 +62,12 @@ const styles = StyleSheet.create({
     padding: 15,
   },
   switch: {
-    transform: [{ scaleX: 0.7 }, { scaleY: 0.7 }],
+    transform: [{ scaleX: 0.85 }, { scaleY: 0.85 }],
   },
   design: {
     fontSize: 13,
-    fontWeight: "500",
-    paddingLeft: 6,
+    fontWeight: "700",
+    paddingLeft: 10,
   },
   designWrapper: {
     flexDirection: "row",
