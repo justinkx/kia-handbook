@@ -52,9 +52,7 @@ const FeatureCarousel = ({ segments }) => {
           source={item.image}
           imageStyle={{ width, height: height / 2 }}
         />
-        {item?.desc && (
-          <Text style={[GlobalStyles.caption, styles.desc]}>{item.desc}</Text>
-        )}
+        {item?.desc && <Text style={styles.desc}>{item.desc}</Text>}
       </View>
     ),
     []
@@ -103,5 +101,8 @@ const styles = StyleSheet.create({
   },
   desc: {
     margin: 20,
+    textAlign: "center",
+    fontSize: 14,
+    fontWeight: "bold",
   },
 });
