@@ -1,8 +1,11 @@
 import React, { memo, useCallback } from "react";
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
+import { useNavigation } from "@react-navigation/native";
 
+import NAV_CONSTANTS from "../Navigation/NavigationConstants";
 import GlobalStyles from "../Styles/GlobalStyle";
+
 const GRADIENT_COLORS = [
   ["#861657", "#5f0a87"],
   ["#647dee", "#7f53ac"],
@@ -10,12 +13,24 @@ const GRADIENT_COLORS = [
   ["#5f72be", "#9921e8"],
   ["#923cb5", "#000000"],
 ];
-const DetailsSegments = ({ segments = [] }) => {
+
+const DetailsSegments = ({ segments = [], details = {} }) => {
+  const navigation = useNavigation();
+
+  const handleNavigation = useCallback(
+    (item) =>
+      navigation.push(NAV_CONSTANTS.FEATURES_SCREEN, {
+        title: item,
+        details,
+      }),
+    [navigation, details]
+  );
+
   return (
     <View style={GlobalStyles.detailsView}>
       <View style={styles.container}>
         {segments.map((item, index) => (
-          <TouchableOpacity key={item}>
+          <TouchableOpacity onPress={() => handleNavigation(item)} key={item}>
             <LinearGradient
               start={{ x: 0.0, y: 0.25 }}
               end={{ x: 0.5, y: 1.0 }}

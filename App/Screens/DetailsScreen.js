@@ -54,7 +54,7 @@ const DetailsScreen = ({ navigation, route }) => {
         <Explore explore={details?.explore} />
         <Performance performance={details?.performance} />
         <Uvo uvo={details?.uvo} />
-        <DetailsSegments segments={details?.segments} />
+        <DetailsSegments details={details} segments={details?.segments} />
       </Animated.ScrollView>
       <CollapsibleSubHeaderAnimator translateY={translateY}>
         <HeaderComponent details={details} />

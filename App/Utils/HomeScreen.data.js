@@ -340,6 +340,27 @@ export const HomeScreenData = [
         "https://www.kia.com/content/dam/kia2/in/en/images/our-vehicles/seltos/showroom/Seltos-UVO-01.jpg",
     },
     segments: ["SPACE", "TECHNOLOGY", "SAFETY", "ENTERTAINMENT"],
+    SPACE: {
+      title: "Room For Everything",
+      desc: "Be it stretching out for your favourite driving position, the large boot space or various utility storages for a weekend destination, the Kia Seltos is bursting with little things to make your drive a pleasure.",
+      segments: [
+        {
+          name: "Holiday",
+          image:
+            "https://user-images.githubusercontent.com/28846043/127763854-ef454b68-7b19-4442-afa6-85dde21d3862.gif",
+        },
+        {
+          name: "Weekend Trips",
+          image:
+            "https://www.kia.com/content/dam/kia2/in/en/images/our-vehicles/seltos/showroom/Seltos-RoomForEverything-weekend_trips-new.png",
+        },
+        {
+          name: "Plan for the Unplanned",
+          image:
+            "https://www.kia.com/content/dam/kia2/in/en/images/our-vehicles/seltos/showroom/RoomForEverything-unplanned-trip-new.png",
+        },
+      ],
+    },
   },
   {
     name: "Sonet",
@@ -628,6 +649,41 @@ export const HomeScreenData = [
         "https://www.kia.com/content/dam/kia2/in/en/images/our-vehicles/sonet/showroom/UVO_Sonet-02.jpg",
     },
     segments: ["TECHNOLOGY", "SAFETY", "ENTERTAINMENT"],
+    SAFETY: {
+      title: "Safe like your home",
+      segments: [
+        {
+          name: "Structure",
+          image:
+            "https://www.kia.com/content/dam/kia2/in/en/images/our-vehicles/sonet/showroom/Sonet_Structure_1280x640.jpg",
+          desc: "Kia Sonet’s structure uses high-strength steel and adhesives to provide comprehensive safety, by reducing the impact in case of a crash",
+        },
+        {
+          name: "6 Airbags",
+          image:
+            "https://www.kia.com/content/dam/kia2/in/en/images/our-vehicles/sonet/showroom/Sonet-Air-bags_1280x640.jpg",
+          desc: "Six Airbags keep you and your family safe from any kind of uncertainty on the road.",
+        },
+        {
+          name: "ESC /HAC /VSM /ABS",
+          image:
+            "https://user-images.githubusercontent.com/28846043/127764044-cf40c1da-a0f0-4a52-b218-2439e1e39157.gif",
+          desc: "Electronic Stability Control & Vehicle Stability Management to ensure excellent braking performance maximised safety.",
+        },
+        {
+          name: "Front parking sensors",
+          image:
+            "https://www.kia.com/content/dam/kia2/in/en/images/our-vehicles/sonet/showroom/sonet-front-parking-sensor-d.jpg",
+          desc: "Parking is always a hassle at tight spots. The front parking sensor ensures precise alignment of your Kia Sonet",
+        },
+        {
+          name: "Tire Pressure Monitor",
+          image:
+            "https://www.kia.com/content/dam/kia2/in/en/images/our-vehicles/sonet/showroom/sonet-tpm-d-2.jpg",
+          desc: "Always be aware of the pressure in your tyres.",
+        },
+      ],
+    },
   },
   {
     name: "Carnival",
@@ -750,5 +806,26 @@ export const HomeScreenData = [
         "https://www.kia.com/content/dam/kia2/in/en/our-vehicles/showroom/carnival-product/Desktop/UVO.png",
     },
     segments: ["SPACE", "EXTRAVAGANCE", "SAFETY", "ENTERTAINMENT"],
+    SPACE: {
+      title: "Extravagant in Space",
+      desc: "Be it driving your colleagues for a team brunch, taking your family for a vacation or setting out on an adventure with your friends, Kia Carnival comes with versatile seating combinations to make room for everyone and almost everything you need.",
+      segments: [
+        {
+          name: "7 Seater - VIP Seats",
+          image:
+            "https://www.kia.com/content/dam/kia2/in/en/our-vehicles/showroom/carnival-product/Desktop/9seater.jpg",
+        },
+        {
+          name: "8 Seater",
+          image:
+            "https://www.kia.com/content/dam/kia2/in/en/our-vehicles/showroom/carnival-product/Desktop/9seater.jpg",
+        },
+        {
+          name: "9 Seater (6 + 3)",
+          image:
+            "https://www.kia.com/content/dam/kia2/in/en/our-vehicles/showroom/carnival-product/Desktop/9seater.jpg",
+        },
+      ],
+    },
   },
 ];
