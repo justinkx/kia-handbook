@@ -3,7 +3,9 @@ import { StyleSheet, Text, View, ScrollView } from "react-native";
 
 import GlobalStyles from "../Styles/GlobalStyle";
 
-const FeatureScreen = () => {
+const FeatureScreen = ({ route }) => {
+  const { title = "", details = {} } = route?.params;
+
   return (
     <View style={GlobalStyles.flex}>
       <ScrollView

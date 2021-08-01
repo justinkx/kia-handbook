@@ -14,15 +14,16 @@ const GRADIENT_COLORS = [
   ["#923cb5", "#000000"],
 ];
 
-const DetailsSegments = ({ segments = [] }) => {
+const DetailsSegments = ({ segments = [], details = {} }) => {
   const navigation = useNavigation();
 
   const handleNavigation = useCallback(
     (item) =>
       navigation.push(NAV_CONSTANTS.FEATURES_SCREEN, {
         title: item,
+        details,
       }),
-    [navigation]
+    [navigation, details]
   );
 
   return (
