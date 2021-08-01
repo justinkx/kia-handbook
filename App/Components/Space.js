@@ -9,7 +9,9 @@ const Space = ({ space = {} }) => {
     <View>
       <View style={[GlobalStyles.detailsView, styles.container]}>
         <Text style={GlobalStyles.title}>{space.title}</Text>
-        <Text style={[GlobalStyles.caption, styles.desc]}>{space.desc}</Text>
+        {space?.desc && (
+          <Text style={[GlobalStyles.caption, styles.desc]}>{space?.desc}</Text>
+        )}
       </View>
       <FeatureCarousel segments={space.segments} />
     </View>

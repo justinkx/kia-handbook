@@ -23,7 +23,7 @@ const DiscoverPagination = ({ totalSize, currentIndex }) => {
         duration: 500,
       }
     );
-  }, [totalSize, currentIndex]);
+  }, [totalSize, currentIndex, animatedWidth]);
 
   const progressStyle = useAnimatedStyle(() => ({
     width: animatedWidth.value,
