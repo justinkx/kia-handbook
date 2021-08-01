@@ -981,5 +981,34 @@ export const HomeScreenData = [
         },
       ],
     },
+    SAFETY: {
+      title: "Safe like your home",
+      segments: [
+        {
+          name: "Structure & Six Airbags",
+          image:
+            "https://www.kia.com/content/dam/kia2/in/en/our-vehicles/showroom/carnival-product/Desktop/Airbags.jpg",
+          desc: "Kia Carnival structure uses high-strength steel and adhesives to provide comprehensive safety, by reducing the impact in case of crash. Our multi-directional safety package includes driver, passenger, side and curtain airbags.",
+        },
+        {
+          name: "Electronic Stability Control",
+          image:
+            "https://www.kia.com/content/dam/kia2/in/en/our-vehicles/showroom/carnival-product/Desktop/ESC.png",
+          desc: "It controls brake pressure in challenging driving situations like sudden turns, acceleration and braking.",
+        },
+        {
+          name: "Front and Rear Parking Sensors",
+          image:
+            "https://www.kia.com/content/dam/kia2/in/en/our-vehicles/showroom/carnival-product/Desktop/ParkingSensors.jpg",
+          desc: "These sensors help you to safely manoeuvre and park in peculiar Indian driving conditions.",
+        },
+        {
+          name: "Hill Start Assist Control",
+          image:
+            "https://www.kia.com/content/dam/kia2/in/en/our-vehicles/showroom/carnival-product/Desktop/HAC.jpg",
+          desc: "Hill Start Assist Control prevents the vehicle from rolling back during an uphill climb from a static position.",
+        },
+      ],
+    },
   },
 ];
