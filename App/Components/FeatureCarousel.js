@@ -8,38 +8,43 @@ import {
 } from "react-native";
 
 import COLORS from "../Styles/Colors";
+import GlobalStyles from "../Styles/GlobalStyle";
 
 const FeatureCarousel = ({ segments }) => {
   const [activeIndex, setIndex] = useState(0);
 
-  const keyExtractor = useCallback(({ _, index }) => index.toString(), []);
+  const keyExtractor = useCallback((_, index) => index.toString(), []);
 
   const renderTop = useCallback(
-    (item, index) => (
+    ({ item, index }) => (
       <TouchableOpacity
         onPress={() => setIndex(index)}
         style={[
           styles.topSegment,
           {
-            backgroundColor: COLORS.gravity_gray,
+            backgroundColor:
+              index === activeIndex ? COLORS.title : COLORS.steel_silver,
           },
         ]}
       >
         <Text style={styles.name}>{item.name}</Text>
       </TouchableOpacity>
     ),
-    []
+    [activeIndex]
   );
 
   return (
     <View>
-      <FlatList
-        keyExtractor={keyExtractor}
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        data={segments}
-        renderItem={renderTop}
-      />
+      <View style={GlobalStyles.detailsView}>
+        <FlatList
+          keyExtractor={keyExtractor}
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          data={segments}
+          renderItem={renderTop}
+          bounces
+        />
+      </View>
     </View>
   );
 };
@@ -56,5 +61,6 @@ const styles = StyleSheet.create({
   name: {
     fontSize: 13,
     fontWeight: "bold",
+    color: "white",
   },
 });
