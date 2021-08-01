@@ -396,6 +396,41 @@ export const HomeScreenData = [
         },
       ],
     },
+    SAFETY: {
+      title: "Safe like your home",
+      segments: [
+        {
+          name: "Structure",
+          image:
+            "https://www.kia.com/content/dam/kia2/in/en/images/our-vehicles/seltos/showroom/seltos-safety-structure.jpg",
+          desc: "Kia Seltos structure uses high-strength steel and adhesives to provide comprehensive safety, by reducing the impact in case of a crash",
+        },
+        {
+          name: "6 Airbags",
+          image:
+            "https://www.kia.com/content/dam/kia2/in/en/images/our-vehicles/seltos/showroom/seltos_safety_airbags_new.png",
+          desc: "SELTOS Omni-directional crash safety starts with airbags for Driver & front passenger which reduces the risk of injury by regulating airbag deployment.",
+        },
+        {
+          name: "ESC /HAC /VSM /ABS",
+          image:
+            "https://user-images.githubusercontent.com/28846043/127772066-0351602d-8821-4183-b72e-75613fb59a04.gif",
+          desc: "Driving safety of SELTOS is amplified by the active safety features like ESC / HAC / VSM / ABS which helps you keep the car in control while driving.",
+        },
+        {
+          name: "All Wheel Disc Brakes",
+          image:
+            "https://www.kia.com/content/dam/kia2/in/en/images/our-vehicles/seltos/showroom/seltos-safety-wheeldiscbrakes-01.png",
+          desc: "Disc brakes on all wheels improves the braking performance and helps keep the vehicle under control enhancing the safety while driving",
+        },
+        {
+          name: "Tire Pressure Monitor",
+          image:
+            "https://www.kia.com/content/dam/kia2/in/en/images/our-vehicles/seltos/showroom/seltos-safety-tpms-00.jpg",
+          desc: "The high-line Tire Pressure Monitor helps you keep track of the tire pressure to protect you against any unexpected incident.",
+        },
+      ],
+    },
   },
   {
     name: "Sonet",
