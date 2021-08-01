@@ -431,6 +431,13 @@ export const HomeScreenData = [
         },
       ],
     },
+    ENTERTAINMENT: {
+      title: "BOSE premium sound system with 8 speakers",
+      description:
+        "The immersive sound achieved by specially designed BOSE speakers with their Dynamic Speed Compensation technology, keeps you entertained on all your drives.",
+      image:
+        "https://www.kia.com/content/dam/kia2/in/en/images/our-vehicles/seltos/showroom/seltos-bose-premium-audio.jpg",
+    },
   },
   {
     name: "Sonet",
@@ -789,6 +796,13 @@ export const HomeScreenData = [
         },
       ],
     },
+    ENTERTAINMENT: {
+      title: "BOSE Premium Sound System",
+      description:
+        "BOSE Premium 7-speaker System with LED Sound Mood Lights lets your favourite tracks roar in the urban jungle.",
+      image:
+        "https://www.kia.com/content/dam/kia2/in/en/images/our-vehicles/sonet/showroom/bose-7-spekr-d.jpg",
+    },
   },
   {
     name: "Carnival",
@@ -931,6 +945,12 @@ export const HomeScreenData = [
             "https://www.kia.com/content/dam/kia2/in/en/our-vehicles/showroom/carnival-product/Desktop/9seater.jpg",
         },
       ],
+    },
+    ENTERTAINMENT: {
+      title: "Rear Seat Entertainment",
+      desc: "Every detail of Kia Carnival is meant to be a treat for your senses. Its 25.65cm (10.1”) Touchscreen Entertainment System makes your drive so much more fun that you’ll always feel like you are in your living room.",
+      image:
+        "https://www.kia.com/content/dam/kia2/in/en/our-vehicles/showroom/carnival-product/Desktop/RSE.jpg",
     },
   },
 ];
