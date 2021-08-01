@@ -361,6 +361,41 @@ export const HomeScreenData = [
         },
       ],
     },
+    TECHNOLOGY: {
+      title: "Unbeatable technology",
+      segments: [
+        {
+          name: "26.03cm (10.25”) Touchscreen & 10.67cm (4.2”) Color Cluster",
+          image:
+            "https://user-images.githubusercontent.com/28846043/127770929-ce65a43d-8618-49a7-93cb-91f4c9989f3d.gif",
+          desc: `The connected 26.03cm (10.25") HD touchscreen and Advance 10.67cm (4.2”) color display panel makes the cabin look futuristic and reduces distraction while driving.`,
+        },
+        {
+          name: "Front Ventilated Seats",
+          image:
+            "https://user-images.githubusercontent.com/28846043/127770990-30e5d057-a5aa-4469-80d5-a8fb21a9eed3.gif",
+          desc: "Ventilated Front Seats make every drive a breeze especially in hot and humid conditions",
+        },
+        {
+          name: "Smart Pure Air Purifier With Virus Protection",
+          image:
+            "https://user-images.githubusercontent.com/28846043/127771043-2bf49562-a2dd-408a-9752-1b236dace78a.gif",
+          desc: "Smart Pure Air Purifier with Virus Protection ensures you breathe the Cleanest and Safest air when you are inside",
+        },
+        {
+          name: "Multi Drive Modes And Traction Modes",
+          image:
+            "https://user-images.githubusercontent.com/28846043/127771107-7b06fa60-41c1-4762-b44c-5c82b029657d.gif",
+          desc: "Multi-drive Modes (Normal/Eco/Sport) are designed to conquer every terrain with effortless drivability",
+        },
+        {
+          name: "MT Remote Engine Start",
+          image:
+            "https://user-images.githubusercontent.com/28846043/127771151-5d98fa39-1283-48f7-b813-6fda3476c61d.gif",
+          desc: "Remotely start the engine of your manual transmission car using smart key. ",
+        },
+      ],
+    },
   },
   {
     name: "Sonet",
