@@ -12,6 +12,7 @@ export default HomeStack = () => {
   const titleFromParamsOptions = useCallback(
     ({ route }) => ({
       title: route?.params?.title || "Features",
+      headerBackTitle: "Back",
     }),
     []
   );

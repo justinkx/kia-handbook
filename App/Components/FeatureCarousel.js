@@ -1,4 +1,4 @@
-import React, { memo, useCallback, useState } from "react";
+import React, { memo, useCallback, useState, useRef } from "react";
 import {
   StyleSheet,
   Text,
@@ -8,17 +8,29 @@ import {
 } from "react-native";
 
 import COLORS from "../Styles/Colors";
-import GlobalStyles from "../Styles/GlobalStyle";
+import GlobalStyles, { width, height } from "../Styles/GlobalStyle";
+import LoadingImage from "./Loadingmage";
 
 const FeatureCarousel = ({ segments }) => {
   const [activeIndex, setIndex] = useState(0);
+  const topRef = useRef(null);
+  const bottomRef = useRef(null);
 
   const keyExtractor = useCallback((_, index) => index.toString(), []);
+
+  const onSegmentClick = useCallback((index) => {
+    setIndex(index);
+    topRef?.current?.scrollToIndex({ index, animated: true });
+    bottomRef?.current?.scrollToIndex({
+      animated: true,
+      index,
+    });
+  }, []);
 
   const renderTop = useCallback(
     ({ item, index }) => (
       <TouchableOpacity
-        onPress={() => setIndex(index)}
+        onPress={() => onSegmentClick(index)}
         style={[
           styles.topSegment,
           {
@@ -30,13 +42,23 @@ const FeatureCarousel = ({ segments }) => {
         <Text style={styles.name}>{item.name}</Text>
       </TouchableOpacity>
     ),
-    [activeIndex]
+    [activeIndex, onSegmentClick]
   );
+
+  const renderBottom = useCallback(({ item, index }) => (
+    <View style={width}>
+      <LoadingImage
+        source={item.image}
+        imageStyle={{ width, height: height / 2 }}
+      />
+    </View>
+  ));
 
   return (
     <View>
       <View style={GlobalStyles.detailsView}>
         <FlatList
+          ref={topRef}
           keyExtractor={keyExtractor}
           horizontal
           showsHorizontalScrollIndicator={false}
@@ -45,6 +67,15 @@ const FeatureCarousel = ({ segments }) => {
           bounces
         />
       </View>
+      <FlatList
+        ref={bottomRef}
+        data={segments}
+        pagingEnabled
+        showsHorizontalScrollIndicator={false}
+        horizontal
+        keyExtractor={keyExtractor}
+        renderItem={renderBottom}
+      />
     </View>
   );
 };

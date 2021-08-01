@@ -7,7 +7,7 @@ import FeatureCarousel from "./FeatureCarousel";
 const Space = ({ space = {} }) => {
   return (
     <View>
-      <View style={GlobalStyles.detailsView}>
+      <View style={[GlobalStyles.detailsView, styles.container]}>
         <Text style={GlobalStyles.title}>{space.title}</Text>
         <Text style={[GlobalStyles.caption, styles.desc]}>{space.desc}</Text>
       </View>
@@ -22,5 +22,8 @@ const styles = StyleSheet.create({
   desc: {
     paddingTop: 10,
     paddingBottom: 15,
+  },
+  container: {
+    padding: 20,
   },
 });

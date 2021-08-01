@@ -17,12 +17,7 @@ const FeatureScreen = ({ route }) => {
 
   return (
     <View style={[GlobalStyles.flex, GlobalStyles.whiteBackground]}>
-      <ScrollView
-        style={GlobalStyles.flex}
-        contentContainerStyle={GlobalStyles.pagePadding}
-      >
-        {renderComponent}
-      </ScrollView>
+      <ScrollView style={GlobalStyles.flex}>{renderComponent}</ScrollView>
     </View>
   );
 };
