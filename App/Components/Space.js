@@ -8,7 +8,7 @@ const Space = ({ space = {} }) => {
     <View>
       <View style={GlobalStyles.detailsView}>
         <Text style={GlobalStyles.title}>{space.title}</Text>
-        <Text style={GlobalStyles.caption}>{space.desc}</Text>
+        <Text style={[GlobalStyles.caption, styles.desc]}>{space.desc}</Text>
       </View>
     </View>
   );
@@ -16,4 +16,9 @@ const Space = ({ space = {} }) => {
 
 export default memo(Space);
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  desc: {
+    paddingTop: 10,
+    paddingBottom: 15,
+  },
+});
