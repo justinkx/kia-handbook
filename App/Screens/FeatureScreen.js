@@ -9,7 +9,7 @@ const FeatureScreen = ({ route }) => {
 
   const renderComponent = useMemo(() => {
     let renderItem = null;
-    if (["SPACE", "TECHNOLOGY"].includes(title)) {
+    if (["SPACE", "TECHNOLOGY", "SAFETY"].includes(title)) {
       renderItem = <Space space={details?.[title]} />;
     }
     return renderItem;
