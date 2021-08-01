@@ -12,7 +12,7 @@ const BackButton = ({ navigation, top = 50, color = "white" }) => {
           top: color === "white" ? top : 0,
           backgroundColor: color === "white" ? "transparent" : "white",
           height: color === "white" ? 40 : top + 40,
-          paddingTop: color === "white" ? 0 : 30,
+          paddingTop: color === "white" ? 0 : top,
         },
       ]}
     >
