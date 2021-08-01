@@ -365,34 +365,34 @@ export const HomeScreenData = [
       title: "Unbeatable technology",
       segments: [
         {
-          name: "26.03cm (10.25”) Touchscreen & 10.67cm (4.2”) Color Cluster",
+          name: "26.03cm (10.25”) Touchscreen & 17.78cm (7”) Cluster",
           image:
-            "https://user-images.githubusercontent.com/28846043/127770929-ce65a43d-8618-49a7-93cb-91f4c9989f3d.gif",
-          desc: `The connected 26.03cm (10.25") HD touchscreen and Advance 10.67cm (4.2”) color display panel makes the cabin look futuristic and reduces distraction while driving.`,
+            "https://user-images.githubusercontent.com/28846043/127771290-4a4f0779-58f6-469d-8d8e-fb20682a3211.gif",
+          desc: `The connected 26.03cm (10.25") HD touchscreen and Advance 17.78cm (7.0") Color display panel makes the cabin look futuristic and reduces distraction while driving.`,
         },
         {
-          name: "Front Ventilated Seats",
+          name: "360° View Camera",
           image:
-            "https://user-images.githubusercontent.com/28846043/127770990-30e5d057-a5aa-4469-80d5-a8fb21a9eed3.gif",
-          desc: "Ventilated Front Seats make every drive a breeze especially in hot and humid conditions",
+            "https://user-images.githubusercontent.com/28846043/127771465-24ce04d6-bd8e-4ce1-bb5c-cafa6831cb94.gif",
+          desc: `The 360° view camera with Blind view monitor and Driving view monitor not only enhances convenience but adds to the safety while driving the car.`,
         },
         {
-          name: "Smart Pure Air Purifier With Virus Protection",
+          name: `Smart 20.32cm (8.0") Head up display`,
           image:
-            "https://user-images.githubusercontent.com/28846043/127771043-2bf49562-a2dd-408a-9752-1b236dace78a.gif",
-          desc: "Smart Pure Air Purifier with Virus Protection ensures you breathe the Cleanest and Safest air when you are inside",
+            "https://user-images.githubusercontent.com/28846043/127771488-ffa371f4-02e5-4641-a589-64888a1079a6.gif",
+          desc: `The Smart 20.32cm (8.0") Head up display reduces distraction by displaying important information in the visibility line of the driver.`,
         },
         {
-          name: "Multi Drive Modes And Traction Modes",
+          name: "Ventilated & Power seats",
           image:
-            "https://user-images.githubusercontent.com/28846043/127771107-7b06fa60-41c1-4762-b44c-5c82b029657d.gif",
-          desc: "Multi-drive Modes (Normal/Eco/Sport) are designed to conquer every terrain with effortless drivability",
+            "https://user-images.githubusercontent.com/28846043/127771523-fb25f7a2-ad9a-42f7-9271-df8bb1fefa39.gif",
+          desc: "The Specially designed Ventilated front seats and Driver power seat improves the convenience for Driver and front passenger.",
         },
         {
-          name: "MT Remote Engine Start",
+          name: "Smart Pure Air  Purifier with Virus and  Bacteria Protection",
           image:
-            "https://user-images.githubusercontent.com/28846043/127771151-5d98fa39-1283-48f7-b813-6fda3476c61d.gif",
-          desc: "Remotely start the engine of your manual transmission car using smart key. ",
+            "https://www.kia.com/content/dam/kia2/in/en/images/our-vehicles/seltos/showroom/Air-purifier_d-01.jpg",
+          desc: "Isolate yourself from the polluting environment with the state-of-the-art air purifier.",
         },
       ],
     },
@@ -716,6 +716,41 @@ export const HomeScreenData = [
           image:
             "https://www.kia.com/content/dam/kia2/in/en/images/our-vehicles/sonet/showroom/sonet-tpm-d-2.jpg",
           desc: "Always be aware of the pressure in your tyres.",
+        },
+      ],
+    },
+    TECHNOLOGY: {
+      title: "Unbeatable technology",
+      segments: [
+        {
+          name: "26.03cm (10.25”) Touchscreen & 10.67cm (4.2”) Color Cluster",
+          image:
+            "https://user-images.githubusercontent.com/28846043/127770929-ce65a43d-8618-49a7-93cb-91f4c9989f3d.gif",
+          desc: `The connected 26.03cm (10.25") HD touchscreen and Advance 10.67cm (4.2”) color display panel makes the cabin look futuristic and reduces distraction while driving.`,
+        },
+        {
+          name: "Front Ventilated Seats",
+          image:
+            "https://user-images.githubusercontent.com/28846043/127770990-30e5d057-a5aa-4469-80d5-a8fb21a9eed3.gif",
+          desc: "Ventilated Front Seats make every drive a breeze especially in hot and humid conditions",
+        },
+        {
+          name: "Smart Pure Air Purifier With Virus Protection",
+          image:
+            "https://user-images.githubusercontent.com/28846043/127771043-2bf49562-a2dd-408a-9752-1b236dace78a.gif",
+          desc: "Smart Pure Air Purifier with Virus Protection ensures you breathe the Cleanest and Safest air when you are inside",
+        },
+        {
+          name: "Multi Drive Modes And Traction Modes",
+          image:
+            "https://user-images.githubusercontent.com/28846043/127771107-7b06fa60-41c1-4762-b44c-5c82b029657d.gif",
+          desc: "Multi-drive Modes (Normal/Eco/Sport) are designed to conquer every terrain with effortless drivability",
+        },
+        {
+          name: "MT Remote Engine Start",
+          image:
+            "https://user-images.githubusercontent.com/28846043/127771151-5d98fa39-1283-48f7-b813-6fda3476c61d.gif",
+          desc: "Remotely start the engine of your manual transmission car using smart key. ",
         },
       ],
     },
