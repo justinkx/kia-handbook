@@ -9,7 +9,10 @@ const BackButton = ({ navigation, top = 50, color = "white" }) => {
       style={[
         styles.container,
         {
-          top,
+          top: color === "white" ? top : 0,
+          backgroundColor: color === "white" ? "transparent" : "white",
+          height: color === "white" ? 40 : top + 40,
+          paddingTop: color === "white" ? 0 : top,
         },
       ]}
     >
@@ -25,10 +28,11 @@ const styles = StyleSheet.create({
   container: {
     position: "absolute",
     zIndex: 1000,
-    left: 10,
+    paddingLeft: 10,
     flexDirection: "row",
     justifyContent: "flex-start",
     alignItems: "center",
+    width: "100%",
   },
 
   back: {

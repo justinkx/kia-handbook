@@ -431,6 +431,13 @@ export const HomeScreenData = [
         },
       ],
     },
+    ENTERTAINMENT: {
+      title: "BOSE premium sound system with 8 speakers",
+      description:
+        "The immersive sound achieved by specially designed BOSE speakers with their Dynamic Speed Compensation technology, keeps you entertained on all your drives.",
+      image:
+        "https://www.kia.com/content/dam/kia2/in/en/images/our-vehicles/seltos/showroom/seltos-bose-premium-audio.jpg",
+    },
   },
   {
     name: "Sonet",
@@ -789,6 +796,13 @@ export const HomeScreenData = [
         },
       ],
     },
+    ENTERTAINMENT: {
+      title: "BOSE Premium Sound System",
+      description:
+        "BOSE Premium 7-speaker System with LED Sound Mood Lights lets your favourite tracks roar in the urban jungle.",
+      image:
+        "https://www.kia.com/content/dam/kia2/in/en/images/our-vehicles/sonet/showroom/bose-7-spekr-d.jpg",
+    },
   },
   {
     name: "Carnival",
@@ -929,6 +943,70 @@ export const HomeScreenData = [
           name: "9 Seater (6 + 3)",
           image:
             "https://www.kia.com/content/dam/kia2/in/en/our-vehicles/showroom/carnival-product/Desktop/9seater.jpg",
+        },
+      ],
+    },
+    ENTERTAINMENT: {
+      title: "Rear Seat Entertainment",
+      desc: "Every detail of Kia Carnival is meant to be a treat for your senses. Its 25.65cm (10.1”) Touchscreen Entertainment System makes your drive so much more fun that you’ll always feel like you are in your living room.",
+      image:
+        "https://www.kia.com/content/dam/kia2/in/en/our-vehicles/showroom/carnival-product/Desktop/RSE.jpg",
+    },
+    EXTRAVAGANCE: {
+      title: "Opulence Redefined",
+      segments: [
+        {
+          name: "VIP Seats with leg support",
+          image:
+            "https://www.kia.com/content/dam/kia2/in/en/our-vehicles/showroom/carnival-product/Desktop/VipSeats.jpg",
+          desc: "Just like the VIP Seats with Leg Support that makes it feel like a lounge, Kia Carnival comes replete with features that are bound to indulge.",
+        },
+        {
+          name: "Trizone Auto Climate Control",
+          image:
+            "https://www.kia.com/content/dam/kia2/in/en/our-vehicles/showroom/carnival-product/Desktop/Trione.jpg",
+          desc: "The ultimate Tri-Zone Auto Climate Control ensures that the in-car air temperature and flow are flexible enough to suit everyone along for the journey.",
+        },
+        {
+          name: "Power Sliding Door",
+          image:
+            "https://www.kia.com/content/dam/kia2/in/en/our-vehicles/showroom/carnival-product/Desktop/SlidingDoor.jpg",
+          desc: "With just a touch of a button, the door to the second-row slides open automatically, or as we’d like to say it – magically.",
+        },
+        {
+          name: "Smart Air Purifier",
+          image:
+            "https://www.kia.com/content/dam/kia2/in/en/our-vehicles/showroom/carnival-product/Desktop/Airpurifier.jpg",
+          desc: "The on-board air purifying system keeps the cabin air unaffected by the pollution outside",
+        },
+      ],
+    },
+    SAFETY: {
+      title: "Safe like your home",
+      segments: [
+        {
+          name: "Structure & Six Airbags",
+          image:
+            "https://www.kia.com/content/dam/kia2/in/en/our-vehicles/showroom/carnival-product/Desktop/Airbags.jpg",
+          desc: "Kia Carnival structure uses high-strength steel and adhesives to provide comprehensive safety, by reducing the impact in case of crash. Our multi-directional safety package includes driver, passenger, side and curtain airbags.",
+        },
+        {
+          name: "Electronic Stability Control",
+          image:
+            "https://www.kia.com/content/dam/kia2/in/en/our-vehicles/showroom/carnival-product/Desktop/ESC.png",
+          desc: "It controls brake pressure in challenging driving situations like sudden turns, acceleration and braking.",
+        },
+        {
+          name: "Front and Rear Parking Sensors",
+          image:
+            "https://www.kia.com/content/dam/kia2/in/en/our-vehicles/showroom/carnival-product/Desktop/ParkingSensors.jpg",
+          desc: "These sensors help you to safely manoeuvre and park in peculiar Indian driving conditions.",
+        },
+        {
+          name: "Hill Start Assist Control",
+          image:
+            "https://www.kia.com/content/dam/kia2/in/en/our-vehicles/showroom/carnival-product/Desktop/HAC.jpg",
+          desc: "Hill Start Assist Control prevents the vehicle from rolling back during an uphill climb from a static position.",
         },
       ],
     },
