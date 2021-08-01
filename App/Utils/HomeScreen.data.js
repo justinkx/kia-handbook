@@ -952,5 +952,34 @@ export const HomeScreenData = [
       image:
         "https://www.kia.com/content/dam/kia2/in/en/our-vehicles/showroom/carnival-product/Desktop/RSE.jpg",
     },
+    EXTRAVAGANCE: {
+      title: "Opulence Redefined",
+      segments: [
+        {
+          name: "VIP Seats with leg support",
+          image:
+            "https://www.kia.com/content/dam/kia2/in/en/our-vehicles/showroom/carnival-product/Desktop/VipSeats.jpg",
+          desc: "Just like the VIP Seats with Leg Support that makes it feel like a lounge, Kia Carnival comes replete with features that are bound to indulge.",
+        },
+        {
+          name: "Trizone Auto Climate Control",
+          image:
+            "https://www.kia.com/content/dam/kia2/in/en/our-vehicles/showroom/carnival-product/Desktop/Trione.jpg",
+          desc: "The ultimate Tri-Zone Auto Climate Control ensures that the in-car air temperature and flow are flexible enough to suit everyone along for the journey.",
+        },
+        {
+          name: "Power Sliding Door",
+          image:
+            "https://www.kia.com/content/dam/kia2/in/en/our-vehicles/showroom/carnival-product/Desktop/SlidingDoor.jpg",
+          desc: "With just a touch of a button, the door to the second-row slides open automatically, or as we’d like to say it – magically.",
+        },
+        {
+          name: "Smart Air Purifier",
+          image:
+            "https://www.kia.com/content/dam/kia2/in/en/our-vehicles/showroom/carnival-product/Desktop/Airpurifier.jpg",
+          desc: "The on-board air purifying system keeps the cabin air unaffected by the pollution outside",
+        },
+      ],
+    },
   },
 ];
