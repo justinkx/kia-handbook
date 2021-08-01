@@ -340,6 +340,27 @@ export const HomeScreenData = [
         "https://www.kia.com/content/dam/kia2/in/en/images/our-vehicles/seltos/showroom/Seltos-UVO-01.jpg",
     },
     segments: ["SPACE", "TECHNOLOGY", "SAFETY", "ENTERTAINMENT"],
+    SPACE: {
+      title: "Room For Everything",
+      desc: "Be it stretching out for your favourite driving position, the large boot space or various utility storages for a weekend destination, the Kia Seltos is bursting with little things to make your drive a pleasure.",
+      segments: [
+        {
+          name: "Holiday",
+          image:
+            "https://user-images.githubusercontent.com/28846043/127763854-ef454b68-7b19-4442-afa6-85dde21d3862.gif",
+        },
+        {
+          name: "Weekend Trips",
+          image:
+            "https://www.kia.com/content/dam/kia2/in/en/images/our-vehicles/seltos/showroom/Seltos-RoomForEverything-weekend_trips-new.png",
+        },
+        {
+          name: "Plan for the Unplanned",
+          image:
+            "https://www.kia.com/content/dam/kia2/in/en/images/our-vehicles/seltos/showroom/RoomForEverything-unplanned-trip-new.png",
+        },
+      ],
+    },
   },
   {
     name: "Sonet",
