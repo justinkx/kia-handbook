@@ -72,7 +72,7 @@ const Explore = ({ explore }) => {
         duration: 500,
       });
     }, 2500);
-  }, [defaultTime]);
+  }, [defaultTime, animatedHeight]);
 
   const onSlidingComplete = useCallback(async () => {
     const selectedTime = sliderRef?.current.state.item;

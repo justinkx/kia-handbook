@@ -45,14 +45,20 @@ const FeatureCarousel = ({ segments }) => {
     [activeIndex, onSegmentClick]
   );
 
-  const renderBottom = useCallback(({ item, index }) => (
-    <View style={width}>
-      <LoadingImage
-        source={item.image}
-        imageStyle={{ width, height: height / 2 }}
-      />
-    </View>
-  ));
+  const renderBottom = useCallback(
+    ({ item, index }) => (
+      <View style={{ width }}>
+        <LoadingImage
+          source={item.image}
+          imageStyle={{ width, height: height / 2 }}
+        />
+        {item?.desc && (
+          <Text style={[GlobalStyles.caption, styles.desc]}>{item.desc}</Text>
+        )}
+      </View>
+    ),
+    []
+  );
 
   return (
     <View>
@@ -75,6 +81,7 @@ const FeatureCarousel = ({ segments }) => {
         horizontal
         keyExtractor={keyExtractor}
         renderItem={renderBottom}
+        scrollEnabled={false}
       />
     </View>
   );
@@ -93,5 +100,8 @@ const styles = StyleSheet.create({
     fontSize: 13,
     fontWeight: "bold",
     color: "white",
+  },
+  desc: {
+    margin: 20,
   },
 });
