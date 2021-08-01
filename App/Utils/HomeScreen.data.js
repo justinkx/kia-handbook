@@ -138,9 +138,9 @@ export const HomeScreenData = [
             ),
           },
           {
-            paint: "Red + Black",
+            paint: "Silver + Orange",
             dualTone: true,
-            colors: ["#adadad", "#db5e26"],
+            colors: ["#db5e26", "#adadad"],
             images: vrImageGenerator(
               "seltos/tiw5k4g1uhh132/exterior/gb8/",
               1,
@@ -257,9 +257,9 @@ export const HomeScreenData = [
             ),
           },
           {
-            paint: "Red + Black",
+            paint: "Silver + Orange",
             dualTone: true,
-            colors: ["#adadad", "#db5e26"],
+            colors: ["#db5e26", "#adadad"],
             images: vrImageGenerator(
               "seltos/tiw51mc57pp00d/exterior/gb8/",
               1,

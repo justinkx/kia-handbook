@@ -6,8 +6,7 @@ import {
   Dimensions,
   StyleSheet,
 } from "react-native";
-
-import LoadingImage from "./Loadingmage";
+import { NoFlickerImage } from "react-native-no-flicker-image";
 
 const { width } = Dimensions.get("window");
 
@@ -81,18 +80,14 @@ export default class Image360Viewer extends PureComponent {
 
     const mRotation = rotation - Math.floor(rotation / 360) * 360;
     const index = Math.floor(mRotation / rotatePeriod);
-    return srcSet[index]?.uri;
+    return srcSet[index];
   };
 
   render() {
     const { width, height } = this.props;
     return (
       <View style={styles.container} {...this.panResponder.panHandlers}>
-        <LoadingImage
-          source={this.getImage()}
-          imageStyle={[{ width, height }]}
-          resizeMode="contain"
-        />
+        <NoFlickerImage source={this.getImage()} style={[{ width, height }]} />
       </View>
     );
   }
