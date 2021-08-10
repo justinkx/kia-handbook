@@ -19,7 +19,8 @@
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.kia.handbook",
-      "buildNumber": "1.0.0"
+      "buildNumber": "1.0.0",
+      "infoPlist": {}
     },
     "android": {
       "package": "com.kia.handbook",
@@ -27,7 +28,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/android_adaptive_foreground.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "permissions": []
     },
     "web": {
       "favicon": "./assets/favicon.png"
