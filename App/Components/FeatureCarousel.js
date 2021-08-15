@@ -60,8 +60,9 @@ const FeatureCarousel = ({ segments }) => {
 
   return (
     <View>
-      <View style={GlobalStyles.detailsView}>
+      <View>
         <FlatList
+          contentContainerStyle={GlobalStyles.detailsView}
           ref={topRef}
           keyExtractor={keyExtractor}
           horizontal
