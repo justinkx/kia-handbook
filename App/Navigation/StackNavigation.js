@@ -13,6 +13,10 @@ export default HomeStack = () => {
     ({ route }) => ({
       title: route?.params?.title || "Features",
       headerBackTitle: "Back",
+      headerBackTitleStyle: {
+        color: "black",
+      },
+      headerTintColor: "black",
     }),
     []
   );
